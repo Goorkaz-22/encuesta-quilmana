@@ -1297,6 +1297,53 @@ footer strong{
 
 }
 
+/* =========================================================
+   BOTÓN COMPARTIR RESULTADOS
+========================================================= */
+
+.share-results{
+    text-align:center;
+    margin-top:25px;
+}
+
+.share-results-btn{
+
+    border:0;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    background:#16a34a;
+
+    color:white;
+
+    font-size:14px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 20px
+    rgba(22,163,74,.20);
+
+    transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+.share-results-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 12px 25px
+    rgba(22,163,74,.30);
+
+}
+   
 </style>
 
 </head>
@@ -1595,6 +1642,17 @@ footer strong{
 
     </div>
 
+   <div class="share-results">
+
+    <button
+        class="share-results-btn"
+        onclick="shareResults()"
+    >
+        📊 COMPARTIR RESULTADOS
+    </button>
+
+</div>
+   
 </section>
 
 
@@ -2652,6 +2710,114 @@ setInterval(
     5000
 );
 
+/* =========================================================
+   COMPARTIR RESULTADOS
+========================================================= */
+
+async function shareResults(){
+
+    try{
+
+        const results =
+        await supabaseRequest(
+            "rpc/obtener_resultados"
+        );
+
+
+        let total = 0;
+
+
+        results.forEach(item => {
+
+            total += Number(
+                item.votos || 0
+            );
+
+        });
+
+
+        let message =
+        `🗳️ RESULTADOS DE LA ENCUESTA CIUDADANA QUILMANÁ 2026\n\n`;
+
+
+        message +=
+        `👥 Participantes: ${total.toLocaleString("es-PE")}\n\n`;
+
+
+        results.forEach((item, index) => {
+
+            const votes =
+            Number(item.votos || 0);
+
+
+            const percentage =
+            total > 0
+            ? ((votes / total) * 100).toFixed(1)
+            : "0.0";
+
+
+            let position = "";
+
+            if(index === 0){
+                position = "🥇";
+            }
+            else if(index === 1){
+                position = "🥈";
+            }
+            else if(index === 2){
+                position = "🥉";
+            }
+            else{
+                position = "▫️";
+            }
+
+
+            message +=
+            `${position} ${item.nombre} — ${percentage}% (${votes} ${votes === 1 ? "voto" : "votos"})\n`;
+
+        });
+
+
+        message +=
+        `\n📊 Resultados referenciales de una encuesta independiente.\n\n`;
+
+
+        message +=
+        `⚠️ NO ES UNA ENCUESTA OFICIAL Y NO REPRESENTA RESULTADOS ELECTORALES OFICIALES.\n\n`;
+
+
+        message +=
+        `🔗 Ver resultados:\n${window.location.href}`;
+
+
+        const whatsappURL =
+        "https://wa.me/?text=" +
+        encodeURIComponent(message);
+
+
+        window.open(
+            whatsappURL,
+            "_blank"
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Error al compartir resultados:",
+            error
+        );
+
+
+        alert(
+            "No se pudieron obtener los resultados para compartir."
+        );
+
+    }
+
+}
+   
 </script>
 
 
