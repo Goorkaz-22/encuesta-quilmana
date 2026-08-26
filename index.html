@@ -3,1166 +3,1301 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="description"
-        content="Encuesta ciudadana independiente para los pobladores de Quilmaná y sus anexos."
-    >
+<meta name="theme-color" content="#0f172a">
 
-    <meta
-        name="theme-color"
-        content="#0f172a"
-    >
+<meta
+name="description"
+content="Encuesta ciudadana independiente de Quilmaná y sus anexos."
+>
 
-    <title>
-        Encuesta Ciudadana Quilmaná 2026
-    </title>
+<title>Encuesta Ciudadana Quilmaná 2026</title>
 
 
-    <style>
+<style>
 
-        /* =====================================================
-           RESET
-        ===================================================== */
+/* =========================================================
+   RESET
+========================================================= */
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
+html{
+    scroll-behavior:smooth;
+}
 
-        :root {
 
-            --primary: #0f172a;
+body{
 
-            --primary-light: #1e293b;
+    font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
 
-            --blue: #2563eb;
+    background:#f4f6f9;
 
-            --blue-dark: #1d4ed8;
+    color:#0f172a;
 
-            --green: #16a34a;
+    min-height:100vh;
 
-            --orange: #f97316;
+}
 
-            --red: #dc2626;
 
-            --background: #f1f5f9;
+/* =========================================================
+   VARIABLES
+========================================================= */
 
-            --white: #ffffff;
+:root{
 
-            --text: #0f172a;
+    --dark:#0f172a;
 
-            --muted: #64748b;
+    --dark2:#1e293b;
 
-            --border: #e2e8f0;
+    --blue:#2563eb;
 
-        }
+    --blue2:#3b82f6;
 
+    --green:#16a34a;
 
-        /* =====================================================
-           BODY
-        ===================================================== */
+    --orange:#f97316;
 
-        body {
+    --red:#dc2626;
 
-            font-family:
-                Inter,
-                Arial,
-                Helvetica,
-                sans-serif;
+    --white:#ffffff;
 
-            background:
-                var(--background);
+    --gray:#64748b;
 
-            color:
-                var(--text);
+    --light:#f8fafc;
 
-            min-height:
-                100vh;
+    --border:#e2e8f0;
 
-        }
+}
 
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+/* =========================================================
+   HEADER
+========================================================= */
 
-        header {
+.hero{
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #020617,
-                    #1e293b
-                );
+    position:relative;
 
-            color:
-                white;
+    overflow:hidden;
 
-            text-align:
-                center;
+    background:
 
-            padding:
-                42px 20px;
+    radial-gradient(
+        circle at top right,
+        rgba(37,99,235,.35),
+        transparent 35%
+    ),
 
-            box-shadow:
-                0 8px 30px
-                rgba(0,0,0,.18);
+    linear-gradient(
+        135deg,
+        #020617,
+        #172554,
+        #0f172a
+    );
 
-        }
+    color:white;
 
+    padding:55px 20px 70px;
 
-        .logo {
+    text-align:center;
 
-            width:
-                90px;
+}
 
-            height:
-                90px;
 
-            object-fit:
-                contain;
+.hero::before{
 
-            margin-bottom:
-                15px;
+    content:"";
 
-        }
+    position:absolute;
 
+    width:300px;
 
-        header h1 {
+    height:300px;
 
-            font-size:
-                clamp(
-                    26px,
-                    5vw,
-                    40px
-                );
+    background:
+    rgba(59,130,246,.12);
 
-            font-weight:
-                800;
+    border-radius:50%;
 
-            margin-bottom:
-                8px;
+    top:-150px;
 
-        }
+    left:-100px;
 
+}
 
-        header p {
 
-            color:
-                #cbd5e1;
+.hero-content{
 
-            font-size:
-                15px;
+    position:relative;
 
-        }
+    max-width:900px;
 
+    margin:auto;
 
-        /* =====================================================
-           AVISO
-        ===================================================== */
+}
 
-        .warning {
 
-            width:
-                92%;
+.logo{
 
-            max-width:
-                1100px;
+    width:95px;
 
-            margin:
-                20px auto;
+    height:95px;
 
-            padding:
-                20px 22px;
+    object-fit:contain;
 
-            background:
-                #fff7ed;
+    margin-bottom:18px;
 
-            border:
-                1px solid
-                #fed7aa;
+}
 
-            border-left:
-                6px solid
-                var(--orange);
 
-            border-radius:
-                14px;
+.hero h1{
 
-            color:
-                #7c2d12;
+    font-size:
+    clamp(28px,5vw,44px);
 
-            line-height:
-                1.65;
+    font-weight:900;
 
-            font-size:
-                14px;
+    letter-spacing:-1px;
 
-        }
+    margin-bottom:10px;
 
+}
 
-        .warning-title {
 
-            font-size:
-                17px;
+.hero-subtitle{
 
-            font-weight:
-                800;
+    color:#cbd5e1;
 
-            margin-bottom:
-                7px;
+    font-size:16px;
 
-        }
+}
 
 
-        /* =====================================================
-           CONTENEDOR
-        ===================================================== */
+.hero-year{
 
-        .container {
+    display:inline-block;
 
-            width:
-                92%;
+    margin-top:18px;
 
-            max-width:
-                1100px;
+    padding:8px 16px;
 
-            margin:
-                auto;
+    border-radius:30px;
 
-        }
+    background:
+    rgba(255,255,255,.10);
 
+    border:
+    1px solid
+    rgba(255,255,255,.15);
 
-        /* =====================================================
-           INTRO
-        ===================================================== */
+    font-size:13px;
 
-        .intro {
+}
 
-            text-align:
-                center;
 
-            margin:
-                45px 0 30px;
+/* =========================================================
+   WARNING
+========================================================= */
 
-        }
+.warning{
 
+    width:92%;
 
-        .intro h2 {
+    max-width:1100px;
 
-            font-size:
-                clamp(
-                    25px,
-                    4vw,
-                    34px
-                );
+    margin:-25px auto 35px;
 
-            margin-bottom:
-                10px;
+    position:relative;
 
-        }
+    z-index:5;
 
+    background:#fff7ed;
 
-        .intro p {
+    border:1px solid #fed7aa;
 
-            color:
-                var(--muted);
+    border-left:6px solid var(--orange);
 
-            font-size:
-                15px;
+    border-radius:18px;
 
-        }
+    padding:22px 24px;
 
+    color:#7c2d12;
 
-        /* =====================================================
-           ESTADO DEL USUARIO
-        ===================================================== */
+    line-height:1.65;
 
-        .already-voted {
+    font-size:14px;
 
-            display:
-                none;
+    box-shadow:
+    0 12px 35px
+    rgba(15,23,42,.08);
 
-            margin:
-                0 auto 30px;
+}
 
-            max-width:
-                650px;
 
-            padding:
-                20px;
+.warning-title{
 
-            background:
-                #ecfdf5;
+    font-weight:900;
 
-            border:
-                1px solid
-                #bbf7d0;
+    font-size:17px;
 
-            border-radius:
-                15px;
+    margin-bottom:7px;
 
-            color:
-                #166534;
+}
 
-            text-align:
-                center;
 
-            line-height:
-                1.6;
+/* =========================================================
+   CONTAINER
+========================================================= */
 
-        }
+.container{
 
+    width:92%;
 
-        .already-voted strong {
+    max-width:1100px;
 
-            display:
-                block;
+    margin:auto;
 
-            font-size:
-                18px;
+}
 
-            margin-bottom:
-                5px;
 
-        }
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
+.section-title{
 
-        /* =====================================================
-           PARTIDOS
-        ===================================================== */
+    text-align:center;
 
-        .parties {
+    margin:45px 0 28px;
 
-            display:
-                grid;
+}
 
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(
-                        240px,
-                        1fr
-                    )
-                );
 
-            gap:
-                20px;
+.section-title h2{
 
-        }
+    font-size:
+    clamp(25px,4vw,34px);
 
+    font-weight:900;
 
-        /* =====================================================
-           TARJETA PARTIDO
-        ===================================================== */
+    margin-bottom:8px;
 
-        .party {
+}
 
-            background:
-                var(--white);
 
-            border:
-                1px solid
-                var(--border);
+.section-title p{
 
-            border-radius:
-                20px;
+    color:var(--gray);
 
-            padding:
-                25px 20px;
+    font-size:15px;
 
-            text-align:
-                center;
+}
 
-            box-shadow:
-                0 8px 25px
-                rgba(15,23,42,.06);
 
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease;
+/* =========================================================
+   STEPS
+========================================================= */
 
-        }
+.steps{
 
+    display:grid;
 
-        .party:hover {
+    grid-template-columns:
+    repeat(3,1fr);
 
-            transform:
-                translateY(-5px);
+    gap:15px;
 
-            box-shadow:
-                0 16px 35px
-                rgba(15,23,42,.12);
+    margin-bottom:40px;
 
-        }
+}
 
 
-        .party img {
+.step{
 
-            width:
-                125px;
+    background:white;
 
-            height:
-                125px;
+    border:1px solid var(--border);
 
-            object-fit:
-                contain;
+    border-radius:16px;
 
-            margin-bottom:
-                15px;
+    padding:18px;
 
-        }
+    text-align:center;
 
+}
 
-        .party h3 {
 
-            font-size:
-                18px;
+.step-number{
 
-            min-height:
-                43px;
+    width:38px;
 
-            display:
-                flex;
+    height:38px;
 
-            align-items:
-                center;
+    display:flex;
 
-            justify-content:
-                center;
+    align-items:center;
 
-            margin-bottom:
-                15px;
+    justify-content:center;
 
-        }
+    margin:0 auto 10px;
 
+    background:#eff6ff;
 
-        /* =====================================================
-           BOTÓN VOTAR
-        ===================================================== */
+    color:var(--blue);
 
-        .vote-btn {
+    border-radius:50%;
 
-            width:
-                100%;
+    font-weight:900;
 
-            padding:
-                14px;
+}
 
-            border:
-                none;
 
-            border-radius:
-                11px;
+.step strong{
 
-            background:
-                var(--primary);
+    display:block;
 
-            color:
-                white;
+    margin-bottom:5px;
 
-            font-size:
-                14px;
+}
 
-            font-weight:
-                800;
 
-            cursor:
-                pointer;
+.step span{
 
-            transition:
-                .2s;
+    color:var(--gray);
 
-        }
+    font-size:13px;
 
+}
 
-        .vote-btn:hover {
 
-            background:
-                var(--blue);
+/* =========================================================
+   ALREADY VOTED
+========================================================= */
 
-            transform:
-                translateY(-1px);
+.already-voted{
 
-        }
+    display:none;
 
+    max-width:700px;
 
-        /* =====================================================
-           RESULTADOS
-        ===================================================== */
+    margin:0 auto 30px;
 
-        .results {
+    background:#ecfdf5;
 
-            margin:
-                55px 0;
+    border:1px solid #bbf7d0;
 
-            background:
-                white;
+    color:#166534;
 
-            padding:
-                30px;
+    border-radius:18px;
 
-            border-radius:
-                22px;
+    padding:22px;
 
-            box-shadow:
-                0 8px 30px
-                rgba(15,23,42,.07);
+    text-align:center;
 
-        }
+    line-height:1.6;
 
+}
 
-        .results-header {
 
-            text-align:
-                center;
+.already-voted strong{
 
-            margin-bottom:
-                30px;
+    display:block;
 
-        }
+    font-size:19px;
 
+    margin-bottom:5px;
 
-        .results-header h2 {
+}
 
-            font-size:
-                28px;
 
-            margin-bottom:
-                8px;
+/* =========================================================
+   PARTIES
+========================================================= */
 
-        }
+.parties{
 
+    display:grid;
 
-        .live {
+    grid-template-columns:
+    repeat(3,1fr);
 
-            display:
-                inline-flex;
+    gap:22px;
 
-            align-items:
-                center;
+}
 
-            gap:
-                7px;
 
-            color:
-                var(--green);
+.party{
 
-            font-size:
-                13px;
+    background:white;
 
-            font-weight:
-                800;
+    border:1px solid var(--border);
 
-        }
+    border-radius:22px;
 
+    padding:28px 22px;
 
-        .live-dot {
+    text-align:center;
 
-            width:
-                9px;
+    box-shadow:
+    0 8px 25px
+    rgba(15,23,42,.06);
 
-            height:
-                9px;
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 
-            background:
-                #22c55e;
+    position:relative;
 
-            border-radius:
-                50%;
+    overflow:hidden;
 
-            animation:
-                pulse 1.5s infinite;
+}
 
-        }
 
+.party::before{
 
-        @keyframes pulse {
+    content:"";
 
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
+    position:absolute;
 
-            50% {
-                opacity: .4;
-                transform: scale(.8);
-            }
+    left:0;
 
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+    top:0;
 
-        }
+    width:100%;
 
+    height:4px;
 
-        /* =====================================================
-           RESULTADO INDIVIDUAL
-        ===================================================== */
+    background:
+    linear-gradient(
+        90deg,
+        var(--blue),
+        #60a5fa
+    );
 
-        .result {
+}
 
-            margin-bottom:
-                22px;
 
-        }
+.party:hover{
 
+    transform:translateY(-7px);
 
-        .result-info {
+    box-shadow:
+    0 18px 40px
+    rgba(15,23,42,.12);
 
-            display:
-                flex;
+}
 
-            justify-content:
-                space-between;
 
-            align-items:
-                center;
+.party img{
 
-            gap:
-                15px;
+    width:140px;
 
-            margin-bottom:
-                8px;
+    height:140px;
 
-            font-size:
-                14px;
+    object-fit:contain;
 
-        }
+    margin:5px auto 18px;
 
+    display:block;
 
-        .result-name {
+}
 
-            font-weight:
-                800;
 
-        }
+.party h3{
 
+    font-size:18px;
 
-        .result-percent {
+    min-height:45px;
 
-            color:
-                var(--blue);
+    display:flex;
 
-            font-weight:
-                800;
+    align-items:center;
 
-        }
+    justify-content:center;
 
+    margin-bottom:18px;
 
-        .bar {
+}
 
-            width:
-                100%;
 
-            height:
-                14px;
+.vote-btn{
 
-            background:
-                #e2e8f0;
+    width:100%;
 
-            border-radius:
-                30px;
+    border:0;
 
-            overflow:
-                hidden;
+    padding:14px;
 
-        }
+    border-radius:12px;
 
+    background:var(--dark);
 
-        .bar-fill {
+    color:white;
 
-            height:
-                100%;
+    font-size:14px;
 
-            width:
-                0%;
+    font-weight:900;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #2563eb,
-                    #60a5fa
-                );
+    cursor:pointer;
 
-            border-radius:
-                30px;
+    transition:.2s;
 
-            transition:
-                width .6s ease;
+}
 
-        }
 
+.vote-btn:hover{
 
-        .result-votes {
+    background:var(--blue);
 
-            color:
-                var(--muted);
+    transform:translateY(-2px);
 
-            font-size:
-                12px;
+}
 
-            margin-top:
-                5px;
 
-        }
+/* =========================================================
+   RESULTS
+========================================================= */
 
+.results{
 
-        /* =====================================================
-           TOTAL
-        ===================================================== */
+    margin:65px 0;
 
-        .total {
+    background:white;
 
-            margin-top:
-                30px;
+    border:1px solid var(--border);
 
-            padding:
-                22px;
+    border-radius:25px;
 
-            text-align:
-                center;
+    padding:32px;
 
-            background:
-                #f8fafc;
+    box-shadow:
+    0 12px 35px
+    rgba(15,23,42,.07);
 
-            border-radius:
-                15px;
+}
 
-        }
 
+.results-header{
 
-        .total-label {
+    text-align:center;
 
-            color:
-                var(--muted);
+    margin-bottom:35px;
 
-            font-size:
-                13px;
+}
 
-            font-weight:
-                600;
 
-        }
+.results-header h2{
 
+    font-size:
+    clamp(25px,4vw,32px);
 
-        .total-number {
+    font-weight:900;
 
-            font-size:
-                38px;
+    margin-bottom:9px;
 
-            font-weight:
-                900;
+}
 
-            margin-top:
-                5px;
 
-        }
+.live{
 
+    display:inline-flex;
 
-        /* =====================================================
-           MODAL
-        ===================================================== */
+    align-items:center;
 
-        .modal {
+    gap:8px;
 
-            position:
-                fixed;
+    color:var(--green);
 
-            inset:
-                0;
+    font-size:13px;
 
-            background:
-                rgba(
-                    15,
-                    23,
-                    42,
-                    .78
-                );
+    font-weight:900;
 
-            display:
-                none;
+}
 
-            align-items:
-                center;
 
-            justify-content:
-                center;
+.live-dot{
 
-            padding:
-                20px;
+    width:9px;
 
-            z-index:
-                9999;
+    height:9px;
 
-        }
+    border-radius:50%;
 
+    background:#22c55e;
 
-        .modal.active {
+    animation:pulse 1.5s infinite;
 
-            display:
-                flex;
+}
 
-        }
 
+@keyframes pulse{
 
-        .modal-content {
+    0%{
+        opacity:1;
+        transform:scale(1);
+    }
 
-            width:
-                100%;
+    50%{
+        opacity:.35;
+        transform:scale(.75);
+    }
 
-            max-width:
-                450px;
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
 
-            background:
-                white;
+}
 
-            border-radius:
-                22px;
 
-            padding:
-                30px;
+/* =========================================================
+   RESULT
+========================================================= */
 
-            text-align:
-                center;
+.result{
 
-            box-shadow:
-                0 25px 70px
-                rgba(0,0,0,.3);
+    margin-bottom:25px;
 
-            animation:
-                modalIn .2s ease;
+}
 
-        }
 
+.result-top{
 
-        @keyframes modalIn {
+    display:flex;
 
-            from {
+    justify-content:space-between;
 
-                opacity:
-                    0;
+    align-items:center;
 
-                transform:
-                    scale(.92);
+    gap:15px;
 
-            }
+    margin-bottom:8px;
 
-            to {
+}
 
-                opacity:
-                    1;
 
-                transform:
-                    scale(1);
+.result-name{
 
-            }
+    font-weight:900;
 
-        }
+    font-size:14px;
 
+}
 
-        .modal-icon {
 
-            font-size:
-                52px;
+.result-percent{
 
-            margin-bottom:
-                10px;
+    font-weight:900;
 
-        }
+    color:var(--blue);
 
+}
 
-        .modal h2 {
 
-            margin-bottom:
-                10px;
+.bar{
 
-        }
+    width:100%;
 
+    height:15px;
 
-        .modal p {
+    background:#e2e8f0;
 
-            color:
-                var(--muted);
+    border-radius:30px;
 
-            line-height:
-                1.55;
+    overflow:hidden;
 
-            margin-bottom:
-                10px;
+}
 
-        }
 
+.bar-fill{
 
-        .selected-party {
+    height:100%;
 
-            display:
-                block;
+    width:0;
 
-            font-size:
-                21px;
+    border-radius:30px;
 
-            margin:
-                15px 0;
+    background:
+    linear-gradient(
+        90deg,
+        #2563eb,
+        #60a5fa
+    );
 
-        }
+    transition:
+    width .8s ease;
 
+}
 
-        .modal-buttons {
 
-            display:
-                flex;
+.result-bottom{
 
-            gap:
-                10px;
+    display:flex;
 
-            margin-top:
-                22px;
+    justify-content:space-between;
 
-        }
+    margin-top:6px;
 
+    color:var(--gray);
 
-        .modal-buttons button {
+    font-size:12px;
 
-            flex:
-                1;
+}
 
-            padding:
-                14px;
 
-            border:
-                none;
+/* =========================================================
+   TOP 3
+========================================================= */
 
-            border-radius:
-                11px;
+.result:first-child .result-name::before{
 
-            font-weight:
-                800;
+    content:"🥇 ";
 
-            cursor:
-                pointer;
+}
 
-        }
 
+.result:nth-child(2) .result-name::before{
 
-        .cancel {
+    content:"🥈 ";
 
-            background:
-                #e2e8f0;
+}
 
-            color:
-                var(--text);
 
-        }
+.result:nth-child(3) .result-name::before{
 
+    content:"🥉 ";
 
-        .confirm {
+}
 
-            background:
-                var(--blue);
 
-            color:
-                white;
+/* =========================================================
+   TOTAL
+========================================================= */
 
-        }
+.total{
 
+    margin-top:35px;
 
-        .confirm:hover {
+    padding:25px;
 
-            background:
-                var(--blue-dark);
+    border-radius:18px;
 
-        }
+    background:
+    linear-gradient(
+        135deg,
+        #eff6ff,
+        #f8fafc
+    );
 
+    text-align:center;
 
-        /* =====================================================
-           ÉXITO
-        ===================================================== */
+}
 
-        .success {
 
-            display:
-                none;
+.total-label{
 
-            max-width:
-                550px;
+    color:var(--gray);
 
-            margin:
-                40px auto;
+    font-size:13px;
 
-            background:
-                white;
+    font-weight:800;
 
-            border-radius:
-                22px;
+}
 
-            padding:
-                40px 25px;
 
-            text-align:
-                center;
+.total-number{
 
-            box-shadow:
-                0 10px 35px
-                rgba(0,0,0,.08);
+    font-size:42px;
 
-        }
+    font-weight:900;
 
+    margin-top:4px;
 
-        .success-icon {
+    color:var(--dark);
 
-            font-size:
-                65px;
+}
 
-            margin-bottom:
-                15px;
 
-        }
+/* =========================================================
+   SHARE
+========================================================= */
 
+.share{
 
-        .success h2 {
+    text-align:center;
 
-            margin-bottom:
-                10px;
+    margin:20px 0 60px;
 
-        }
+}
 
 
-        .success p {
+.share h3{
 
-            color:
-                var(--muted);
+    font-size:21px;
 
-            line-height:
-                1.6;
+    margin-bottom:8px;
 
-            margin-bottom:
-                20px;
+}
 
-        }
 
+.share p{
 
-        .results-button {
+    color:var(--gray);
 
-            padding:
-                14px 25px;
+    font-size:14px;
 
-            border:
-                none;
+    margin-bottom:18px;
 
-            border-radius:
-                11px;
+}
 
-            background:
-                var(--blue);
 
-            color:
-                white;
+.share-buttons{
 
-            font-weight:
-                800;
+    display:flex;
 
-            cursor:
-                pointer;
+    justify-content:center;
 
-        }
+    gap:10px;
 
+    flex-wrap:wrap;
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
+}
 
-        footer {
 
-            margin-top:
-                50px;
+.share-btn{
 
-            background:
-                #020617;
+    border:0;
 
-            color:
-                #94a3b8;
+    border-radius:12px;
 
-            text-align:
-                center;
+    padding:13px 18px;
 
-            padding:
-                38px 20px;
+    font-weight:800;
 
-            font-size:
-                13px;
+    cursor:pointer;
 
-            line-height:
-                1.7;
+    color:white;
 
-        }
+}
 
 
-        footer strong {
+.whatsapp{
 
-            color:
-                white;
+    background:#16a34a;
 
-        }
+}
 
 
-        /* =====================================================
-           RESPONSIVE
-        ===================================================== */
+.copy{
 
-        @media(max-width:600px) {
+    background:#2563eb;
 
-            header {
+}
 
-                padding:
-                    32px 15px;
 
-            }
+/* =========================================================
+   SUCCESS
+========================================================= */
 
+.success{
 
-            .warning {
+    display:none;
 
-                width:
-                    94%;
+    max-width:600px;
 
-                font-size:
-                    13px;
+    margin:30px auto 60px;
 
-            }
+    background:white;
 
+    border-radius:25px;
 
-            .results {
+    padding:45px 25px;
 
-                padding:
-                    22px 18px;
+    text-align:center;
 
-            }
+    box-shadow:
+    0 15px 40px
+    rgba(15,23,42,.09);
 
+}
 
-            .modal-buttons {
 
-                flex-direction:
-                    column;
+.success-icon{
 
-            }
+    font-size:65px;
 
-        }
+    margin-bottom:15px;
 
-    </style>
+}
+
+
+.success h2{
+
+    font-size:27px;
+
+    margin-bottom:10px;
+
+}
+
+
+.success p{
+
+    color:var(--gray);
+
+    line-height:1.65;
+
+    margin-bottom:20px;
+
+}
+
+
+.results-button{
+
+    border:0;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    background:var(--blue);
+
+    color:white;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(2,6,23,.78);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:9999;
+
+}
+
+
+.modal.active{
+
+    display:flex;
+
+}
+
+
+.modal-content{
+
+    width:100%;
+
+    max-width:460px;
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:32px;
+
+    text-align:center;
+
+    box-shadow:
+    0 30px 80px
+    rgba(0,0,0,.35);
+
+    animation:modalIn .2s ease;
+
+}
+
+
+@keyframes modalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+.modal-icon{
+
+    font-size:55px;
+
+    margin-bottom:10px;
+
+}
+
+
+.modal h2{
+
+    margin-bottom:8px;
+
+}
+
+
+.modal p{
+
+    color:var(--gray);
+
+    line-height:1.6;
+
+}
+
+
+.selected-party{
+
+    display:block;
+
+    font-size:21px;
+
+    margin:16px 0;
+
+}
+
+
+.modal-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:23px;
+
+}
+
+
+.modal-buttons button{
+
+    flex:1;
+
+    border:0;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+}
+
+
+.cancel{
+
+    background:#e2e8f0;
+
+}
+
+
+.confirm{
+
+    background:var(--blue);
+
+    color:white;
+
+}
+
+
+.confirm:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+/* =========================================================
+   BACK TO TOP
+========================================================= */
+
+.back-top{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    width:48px;
+
+    height:48px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:var(--dark);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 25px
+    rgba(0,0,0,.25);
+
+    display:none;
+
+    z-index:100;
+
+}
+
+
+.back-top.show{
+
+    display:block;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    background:#020617;
+
+    color:#94a3b8;
+
+    text-align:center;
+
+    padding:42px 20px;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+footer strong{
+
+    color:white;
+
+    font-size:15px;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px){
+
+    .parties{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .hero{
+
+        padding:42px 15px 60px;
+
+    }
+
+
+    .warning{
+
+        width:94%;
+
+        padding:18px;
+
+        font-size:13px;
+
+    }
+
+
+    .steps{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .parties{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .party img{
+
+        width:125px;
+
+        height:125px;
+
+    }
+
+
+    .results{
+
+        padding:23px 18px;
+
+    }
+
+
+    .modal-buttons{
+
+        flex-direction:column;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -1170,35 +1305,41 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- =========================================================
+     HERO
+========================================================= -->
 
-<header>
+<header class="hero">
 
-    <img
-        src="img/logo-encuesta.png"
-        alt="Encuesta Ciudadana Quilmaná"
-        class="logo"
-        onerror="
-            this.style.display='none'
-        "
-    >
+    <div class="hero-content">
 
-    <h1>
-        Encuesta Ciudadana Quilmaná
-    </h1>
+        <img
+            src="img/logo-encuesta.png"
+            alt="Encuesta Ciudadana Quilmaná"
+            class="logo"
+            onerror="this.style.display='none'"
+        >
 
-    <p>
-        Quilmaná y sus anexos · 2026
-    </p>
+        <h1>
+            Encuesta Ciudadana Quilmaná
+        </h1>
+
+        <p class="hero-subtitle">
+            Quilmaná y sus anexos
+        </p>
+
+        <span class="hero-year">
+            🗳️ Encuesta de opinión · 2026
+        </span>
+
+    </div>
 
 </header>
 
 
-<!-- =====================================================
-     AVISO OFICIAL
-===================================================== -->
+<!-- =========================================================
+     WARNING
+========================================================= -->
 
 <div class="warning">
 
@@ -1206,23 +1347,22 @@
         ⚠️ ENCUESTA CIUDADANA NO OFICIAL
     </div>
 
-    Esta página web es una encuesta ciudadana independiente y
+    Esta página es una encuesta ciudadana independiente.
 
     <strong>
-        NO está autorizada, administrada ni vinculada oficialmente
+        No está autorizada, administrada ni vinculada oficialmente
         con la ONPE, el JNE, la Municipalidad Distrital de Quilmaná
         ni ninguna organización política.
     </strong>
 
-    Su finalidad es únicamente conocer la opinión de los pobladores
+    Su finalidad es conocer la opinión de los pobladores
     de Quilmaná y sus anexos.
 
     <br><br>
 
-    Los resultados publicados son exclusivamente referenciales y
-
     <strong>
-        no representan resultados electorales oficiales.
+        Los resultados son referenciales y no representan
+        resultados electorales oficiales.
     </strong>
 
 </div>
@@ -1231,14 +1371,11 @@
 <main class="container">
 
 
-<!-- =====================================================
-     INTRO
-===================================================== -->
+<!-- =========================================================
+     TITLE
+========================================================= -->
 
-<section
-    class="intro"
-    id="introSection"
->
+<section class="section-title">
 
     <h2>
         ¿Por quién votarías?
@@ -1251,9 +1388,68 @@
 </section>
 
 
-<!-- =====================================================
-     AVISO SI YA VOTÓ
-===================================================== -->
+<!-- =========================================================
+     STEPS
+========================================================= -->
+
+<section class="steps">
+
+    <div class="step">
+
+        <div class="step-number">
+            1
+        </div>
+
+        <strong>
+            Elegí
+        </strong>
+
+        <span>
+            Seleccioná tu organización política.
+        </span>
+
+    </div>
+
+
+    <div class="step">
+
+        <div class="step-number">
+            2
+        </div>
+
+        <strong>
+            Confirmá
+        </strong>
+
+        <span>
+            Revisá tu elección y confirmá.
+        </span>
+
+    </div>
+
+
+    <div class="step">
+
+        <div class="step-number">
+            3
+        </div>
+
+        <strong>
+            Mirá los resultados
+        </strong>
+
+        <span>
+            Consultá los resultados actualizados.
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ALREADY VOTED
+========================================================= -->
 
 <div
     class="already-voted"
@@ -1269,14 +1465,14 @@
 
     <br>
 
-    Podés consultar los resultados actualizados más abajo.
+    Podés consultar los resultados en tiempo real más abajo.
 
 </div>
 
 
-<!-- =====================================================
-     PARTIDOS
-===================================================== -->
+<!-- =========================================================
+     PARTIES
+========================================================= -->
 
 <section
     class="parties"
@@ -1285,9 +1481,9 @@
 
     <p
         style="
-            text-align:center;
-            grid-column:1/-1;
-            color:#64748b;
+        text-align:center;
+        grid-column:1/-1;
+        color:#64748b;
         "
     >
 
@@ -1298,73 +1494,9 @@
 </section>
 
 
-<!-- =====================================================
-     RESULTADOS
-===================================================== -->
-
-<section
-    class="results"
-    id="resultsSection"
->
-
-    <div class="results-header">
-
-        <h2>
-            📊 Resultados en tiempo real
-        </h2>
-
-        <div class="live">
-
-            <span class="live-dot"></span>
-
-            ACTUALIZACIÓN AUTOMÁTICA
-
-        </div>
-
-    </div>
-
-
-    <div id="resultsContainer">
-
-        <p
-            style="
-                text-align:center;
-                color:#64748b;
-            "
-        >
-
-            Cargando resultados...
-
-        </p>
-
-    </div>
-
-
-    <div class="total">
-
-        <div class="total-label">
-
-            TOTAL DE PARTICIPANTES
-
-        </div>
-
-        <div
-            class="total-number"
-            id="totalVotes"
-        >
-
-            0
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     MENSAJE DE ÉXITO
-===================================================== -->
+<!-- =========================================================
+     SUCCESS
+========================================================= -->
 
 <section
     class="success"
@@ -1402,12 +1534,118 @@
 </section>
 
 
+<!-- =========================================================
+     RESULTS
+========================================================= -->
+
+<section
+    class="results"
+    id="resultsSection"
+>
+
+    <div class="results-header">
+
+        <h2>
+            📊 Resultados en vivo
+        </h2>
+
+        <div class="live">
+
+            <span class="live-dot"></span>
+
+            ACTUALIZACIÓN AUTOMÁTICA
+
+        </div>
+
+    </div>
+
+
+    <div id="resultsContainer">
+
+        <p
+            style="
+            text-align:center;
+            color:#64748b;
+            "
+        >
+
+            Cargando resultados...
+
+        </p>
+
+    </div>
+
+
+    <div class="total">
+
+        <div class="total-label">
+
+            👥 TOTAL DE PARTICIPANTES
+
+        </div>
+
+        <div
+            class="total-number"
+            id="totalVotes"
+        >
+
+            0
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SHARE
+========================================================= -->
+
+<section class="share">
+
+    <h3>
+        📲 Compartí la encuesta
+    </h3>
+
+    <p>
+        Ayudanos a conocer la opinión de más pobladores
+        de Quilmaná y sus anexos.
+    </p>
+
+
+    <div class="share-buttons">
+
+        <button
+            class="share-btn whatsapp"
+            onclick="shareWhatsApp()"
+        >
+
+            📲 WhatsApp
+
+        </button>
+
+
+        <button
+            class="share-btn copy"
+            onclick="copyLink()"
+        >
+
+            🔗 Copiar enlace
+
+        </button>
+
+    </div>
+
+</section>
+
+
 </main>
 
 
-<!-- =====================================================
-     MODAL DE CONFIRMACIÓN
-===================================================== -->
+<!-- =========================================================
+     MODAL
+========================================================= -->
 
 <div
     class="modal"
@@ -1427,7 +1665,7 @@
 
 
         <p>
-            Vas a votar por:
+            Seleccionaste:
         </p>
 
 
@@ -1444,7 +1682,7 @@
             Una vez confirmado,
 
             <strong>
-                el voto no podrá modificarse.
+                no podrás modificar tu voto.
             </strong>
 
         </p>
@@ -1479,9 +1717,25 @@
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
+     BACK TOP
+========================================================= -->
+
+<button
+    class="back-top"
+    id="backTop"
+    onclick="scrollToTop()"
+    aria-label="Volver arriba"
+>
+
+    ↑
+
+</button>
+
+
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -1491,7 +1745,7 @@
 
     <br><br>
 
-    Encuesta independiente dirigida a los pobladores
+    Encuesta independiente para los pobladores
     de Quilmaná y sus anexos.
 
     <br><br>
@@ -1502,59 +1756,53 @@
 
     <br><br>
 
-    Los resultados son únicamente referenciales y corresponden
-    exclusivamente a esta encuesta ciudadana.
+    Los resultados publicados son exclusivamente referenciales
+    y no representan resultados electorales oficiales.
 
 </footer>
 
 
 <script>
 
-
-/* =====================================================
+/* =========================================================
    SUPABASE
-===================================================== */
+========================================================= */
 
 const SUPABASE_URL =
-    "https://fqwixynwpccrplfsgiov.supabase.co";
+"https://fqwixynwpccrplfsgiov.supabase.co";
 
 
 const SUPABASE_KEY =
-    "sb_publishable_4rDRfQLp7_nxg0_ZULm_WA_NCCoISy3";
+"sb_publishable_4rDRfQLp7_nxg0_ZULm_WA_NCCoISy3";
 
 
-/* =====================================================
+/* =========================================================
    VARIABLES
-===================================================== */
+========================================================= */
 
-let selectedPartyId =
-    null;
+let selectedPartyId = null;
 
+let selectedPartyName = "";
 
-let selectedPartyName =
-    "";
-
-
-let anonymousId =
-    "";
+let anonymousId = "";
 
 
-/* =====================================================
-   IDENTIFICADOR ANÓNIMO
-===================================================== */
+/* =========================================================
+   IDENTIFICADOR
+========================================================= */
 
-function getAnonymousId() {
+function getAnonymousId(){
 
     let id =
-        localStorage.getItem(
-            "quilmana_vote_id"
-        );
+    localStorage.getItem(
+        "quilmana_vote_id"
+    );
 
 
-    if (!id) {
+    if(!id){
 
         id =
-            crypto.randomUUID();
+        crypto.randomUUID();
 
 
         localStorage.setItem(
@@ -1571,101 +1819,53 @@ function getAnonymousId() {
 
 
 anonymousId =
-    getAnonymousId();
+getAnonymousId();
 
 
-/* =====================================================
-   COMPROBAR SI YA VOTÓ
-===================================================== */
-
-async function checkAlreadyVoted() {
-
-    const localVote =
-        localStorage.getItem(
-            "quilmana_has_voted"
-        );
-
-
-    if (localVote === "true") {
-
-        showAlreadyVoted();
-
-        return true;
-
-    }
-
-
-    return false;
-
-}
-
-
-/* =====================================================
-   MOSTRAR "YA VOTÓ"
-===================================================== */
-
-function showAlreadyVoted() {
-
-    document.getElementById(
-        "alreadyVoted"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "partiesContainer"
-    ).style.display =
-        "none";
-
-}
-
-
-/* =====================================================
-   PETICIÓN SUPABASE
-===================================================== */
+/* =========================================================
+   SUPABASE REQUEST
+========================================================= */
 
 async function supabaseRequest(
     endpoint,
-    options = {}
-) {
+    options={}
+){
 
     const response =
-        await fetch(
+    await fetch(
 
-            `${SUPABASE_URL}/rest/v1/${endpoint}`,
+        `${SUPABASE_URL}/rest/v1/${endpoint}`,
 
-            {
+        {
 
-                ...options,
+            ...options,
 
-                headers: {
+            headers:{
 
-                    "apikey":
-                        SUPABASE_KEY,
+                "apikey":
+                SUPABASE_KEY,
 
-                    "Authorization":
-                        `Bearer ${SUPABASE_KEY}`,
+                "Authorization":
+                `Bearer ${SUPABASE_KEY}`,
 
-                    "Content-Type":
-                        "application/json",
+                "Content-Type":
+                "application/json",
 
-                    ...(options.headers || {})
-
-                }
+                ...(options.headers || {})
 
             }
 
-        );
+        }
+
+    );
 
 
-    if (!response.ok) {
+    if(!response.ok){
 
         const error =
-            await response.text();
+        await response.text();
 
-        throw new Error(
-            error
-        );
+        throw new Error(error);
 
     }
 
@@ -1675,46 +1875,43 @@ async function supabaseRequest(
 }
 
 
-/* =====================================================
-   CARGAR PARTIDOS
-===================================================== */
+/* =========================================================
+   PARTIDOS
+========================================================= */
 
-async function loadParties() {
+async function loadParties(){
 
-    try {
+    try{
 
         const parties =
-            await supabaseRequest(
-
-                "partidos?select=id,nombre,logo&activo=eq.true&order=id.asc"
-
-            );
+        await supabaseRequest(
+            "partidos?select=id,nombre,logo&activo=eq.true&order=id.asc"
+        );
 
 
         const container =
-            document.getElementById(
-                "partiesContainer"
-            );
+        document.getElementById(
+            "partiesContainer"
+        );
 
 
-        container.innerHTML =
-            "";
+        container.innerHTML="";
 
 
         parties.forEach(
-            party => {
+            party=>{
 
                 const card =
-                    document.createElement(
-                        "article"
-                    );
+                document.createElement(
+                    "article"
+                );
 
 
                 card.className =
-                    "party";
+                "party";
 
 
-                card.innerHTML = `
+                card.innerHTML=`
 
                     <img
                         src="${escapeHtml(
@@ -1724,29 +1921,25 @@ async function loadParties() {
                             party.nombre
                         )}"
                         onerror="
-                            this.style.display='none'
+                        this.style.display='none'
                         "
                     >
 
-
                     <h3>
-
                         ${escapeHtml(
                             party.nombre
                         )}
-
                     </h3>
-
 
                     <button
                         class="vote-btn"
                         onclick="
-                            openVoteModal(
-                                ${party.id},
-                                '${escapeJs(
-                                    party.nombre
-                                )}'
-                            )
+                        openVoteModal(
+                            ${party.id},
+                            '${escapeJs(
+                                party.nombre
+                            )}'
+                        )
                         "
                     >
 
@@ -1766,23 +1959,22 @@ async function loadParties() {
 
     }
 
-    catch(error) {
+    catch(error){
 
         console.error(
-            "Error partidos:",
             error
         );
 
 
         document.getElementById(
             "partiesContainer"
-        ).innerHTML = `
+        ).innerHTML=`
 
             <p
                 style="
-                    text-align:center;
-                    color:#dc2626;
-                    grid-column:1/-1;
+                text-align:center;
+                color:#dc2626;
+                grid-column:1/-1;
                 "
             >
 
@@ -1798,27 +1990,26 @@ async function loadParties() {
 }
 
 
-/* =====================================================
-   ABRIR MODAL
-===================================================== */
+/* =========================================================
+   MODAL
+========================================================= */
 
 function openVoteModal(
     partyId,
     partyName
-) {
+){
 
     selectedPartyId =
-        partyId;
-
+    partyId;
 
     selectedPartyName =
-        partyName;
+    partyName;
 
 
     document.getElementById(
         "selectedParty"
     ).textContent =
-        partyName;
+    partyName;
 
 
     document.getElementById(
@@ -1830,11 +2021,7 @@ function openVoteModal(
 }
 
 
-/* =====================================================
-   CERRAR MODAL
-===================================================== */
-
-function closeModal() {
+function closeModal(){
 
     document.getElementById(
         "voteModal"
@@ -1845,15 +2032,13 @@ function closeModal() {
 }
 
 
-/* =====================================================
-   REGISTRAR VOTO
-===================================================== */
+/* =========================================================
+   VOTAR
+========================================================= */
 
-async function confirmVote() {
+async function confirmVote(){
 
-    if (
-        !selectedPartyId
-    ) {
+    if(!selectedPartyId){
 
         return;
 
@@ -1861,65 +2046,64 @@ async function confirmVote() {
 
 
     const button =
-        document.getElementById(
-            "confirmButton"
-        );
+    document.getElementById(
+        "confirmButton"
+    );
 
 
     button.disabled =
-        true;
+    true;
 
 
     button.textContent =
-        "REGISTRANDO...";
+    "REGISTRANDO...";
 
 
-    try {
+    try{
 
         const response =
-            await fetch(
+        await fetch(
 
-                `${SUPABASE_URL}/rest/v1/rpc/registrar_voto`,
+            `${SUPABASE_URL}/rest/v1/rpc/registrar_voto`,
 
-                {
+            {
 
-                    method:
-                        "POST",
+                method:"POST",
 
-                    headers: {
+                headers:{
 
-                        "apikey":
-                            SUPABASE_KEY,
+                    "apikey":
+                    SUPABASE_KEY,
 
-                        "Authorization":
-                            `Bearer ${SUPABASE_KEY}`,
+                    "Authorization":
+                    `Bearer ${SUPABASE_KEY}`,
 
-                        "Content-Type":
-                            "application/json"
+                    "Content-Type":
+                    "application/json"
 
-                    },
+                },
 
-                    body:
-                        JSON.stringify({
+                body:
+                JSON.stringify({
 
-                            p_partido_id:
-                                selectedPartyId,
+                    p_partido_id:
+                    selectedPartyId,
 
-                            p_identificador:
-                                anonymousId
+                    p_identificador:
+                    anonymousId
 
-                        })
+                })
 
-                }
+            }
 
-            );
+        );
 
 
         const result =
-            await response.json();
+        await response.json();
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
             throw new Error(
                 "No se pudo registrar el voto."
@@ -1928,9 +2112,7 @@ async function confirmVote() {
         }
 
 
-        if (
-            !result.success
-        ) {
+        if(!result.success){
 
             throw new Error(
                 result.message ||
@@ -1940,64 +2122,49 @@ async function confirmVote() {
         }
 
 
-        /* ======================================
-           GUARDAR ESTADO LOCAL
-        ====================================== */
-
         localStorage.setItem(
             "quilmana_has_voted",
             "true"
         );
 
 
-        /* ======================================
-           CERRAR MODAL
-        ====================================== */
-
         closeModal();
-
-
-        /* ======================================
-           OCULTAR ENCUESTA
-        ====================================== */
-
-        document.getElementById(
-            "introSection"
-        ).style.display =
-            "none";
 
 
         document.getElementById(
             "partiesContainer"
         ).style.display =
-            "none";
+        "none";
 
-
-        /* ======================================
-           MOSTRAR ÉXITO
-        ====================================== */
 
         document.getElementById(
             "successSection"
         ).style.display =
-            "block";
+        "block";
 
 
-        /* ======================================
-           ACTUALIZAR RESULTADOS
-        ====================================== */
+        document.getElementById(
+            "alreadyVoted"
+        ).style.display =
+        "none";
+
 
         await loadResults();
 
 
-        scrollToResults();
+        document.getElementById(
+            "successSection"
+        ).scrollIntoView({
+
+            behavior:"smooth"
+
+        });
 
     }
 
-    catch(error) {
+    catch(error){
 
         console.error(
-            "Error voto:",
             error
         );
 
@@ -2009,99 +2176,96 @@ async function confirmVote() {
 
     }
 
-    finally {
+    finally{
 
         button.disabled =
-            false;
-
+        false;
 
         button.textContent =
-            "CONFIRMAR VOTO";
+        "CONFIRMAR VOTO";
 
     }
 
 }
 
 
-/* =====================================================
+/* =========================================================
    RESULTADOS
-===================================================== */
+========================================================= */
 
-async function loadResults() {
+async function loadResults(){
 
-    try {
+    try{
 
         const results =
-            await supabaseRequest(
-                "rpc/obtener_resultados"
-            );
+        await supabaseRequest(
+            "rpc/obtener_resultados"
+        );
 
 
         const container =
-            document.getElementById(
-                "resultsContainer"
-            );
+        document.getElementById(
+            "resultsContainer"
+        );
 
 
-        container.innerHTML =
-            "";
+        container.innerHTML="";
 
 
-        let total =
-            0;
+        let total=0;
 
 
         results.forEach(
-            party => {
+            item=>{
 
                 total +=
-                    Number(
-                        party.votos || 0
-                    );
+                Number(
+                    item.votos || 0
+                );
 
             }
         );
 
 
         results.forEach(
-            party => {
+            (item,index)=>{
 
                 const votes =
-                    Number(
-                        party.votos || 0
-                    );
+                Number(
+                    item.votos || 0
+                );
 
 
                 const percentage =
-                    total > 0
+                total > 0
 
-                    ?
+                ?
 
-                    (
-                        votes /
-                        total *
-                        100
-                    ).toFixed(1)
+                (
+                    votes /
+                    total *
+                    100
+                ).toFixed(1)
 
-                    :
+                :
 
-                    "0.0";
+                "0.0";
 
 
                 const result =
-                    document.createElement(
-                        "div"
-                    );
+                document.createElement(
+                    "div"
+                );
 
 
                 result.className =
-                    "result";
+                "result";
 
 
-                result.innerHTML = `
+                result.innerHTML=`
 
                     <div
-                        class="result-info"
+                        class="result-top"
                     >
 
                         <span
@@ -2109,7 +2273,7 @@ async function loadResults() {
                         >
 
                             ${escapeHtml(
-                                party.nombre
+                                item.nombre
                             )}
 
                         </span>
@@ -2133,7 +2297,7 @@ async function loadResults() {
                         <div
                             class="bar-fill"
                             style="
-                                width:${percentage}%
+                            width:${percentage}%
                             "
                         ></div>
 
@@ -2141,16 +2305,36 @@ async function loadResults() {
 
 
                     <div
-                        class="result-votes"
+                        class="result-bottom"
                     >
 
-                        ${votes}
+                        <span>
 
-                        ${
-                            votes === 1
-                            ? "voto"
-                            : "votos"
-                        }
+                            ${
+                                votes
+                            }
+                            ${
+                                votes === 1
+                                ? "voto"
+                                : "votos"
+                            }
+
+                        </span>
+
+
+                        <span>
+
+                            ${
+                                index === 0
+                                ? "Primer lugar"
+                                : index === 1
+                                ? "Segundo lugar"
+                                : index === 2
+                                ? "Tercer lugar"
+                                : ""
+                            }
+
+                        </span>
 
                     </div>
 
@@ -2168,28 +2352,28 @@ async function loadResults() {
         document.getElementById(
             "totalVotes"
         ).textContent =
-            total.toLocaleString(
-                "es-PE"
-            );
+        total.toLocaleString(
+            "es-PE"
+        );
 
     }
 
-    catch(error) {
+    catch(error){
 
         console.error(
-            "Error resultados:",
+            "Resultados:",
             error
         );
 
 
         document.getElementById(
             "resultsContainer"
-        ).innerHTML = `
+        ).innerHTML=`
 
             <p
                 style="
-                    text-align:center;
-                    color:#dc2626;
+                text-align:center;
+                color:#dc2626;
                 "
             >
 
@@ -2205,128 +2389,249 @@ async function loadResults() {
 }
 
 
-/* =====================================================
-   ACTUALIZACIÓN AUTOMÁTICA
-===================================================== */
+/* =========================================================
+   YA VOTÓ
+========================================================= */
 
-setInterval(
-    loadResults,
-    5000
-);
+function checkAlreadyVoted(){
 
-
-/* =====================================================
-   SCROLL RESULTADOS
-===================================================== */
-
-function scrollToResults() {
-
-    document
-        .getElementById(
-            "resultsSection"
-        )
-        .scrollIntoView({
-
-            behavior:
-                "smooth"
-
-        });
-
-}
-
-
-/* =====================================================
-   ESCAPAR HTML
-===================================================== */
-
-function escapeHtml(
-    text
-) {
-
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-/* =====================================================
-   ESCAPAR JAVASCRIPT
-===================================================== */
-
-function escapeJs(
-    text
-) {
-
-    return String(text)
-
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-
-        .replace(
-            /'/g,
-            "\\'"
-        );
-
-}
-
-
-/* =====================================================
-   CERRAR MODAL AL HACER CLICK AFUERA
-===================================================== */
-
-document
-    .getElementById(
-        "voteModal"
-    )
-    .addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target === this
-            ) {
-
-                closeModal();
-
-            }
-
-        }
+    const voted =
+    localStorage.getItem(
+        "quilmana_has_voted"
     );
 
 
-/* =====================================================
-   INICIALIZACIÓN
-===================================================== */
+    if(voted === "true"){
 
-async function init() {
+        document.getElementById(
+            "alreadyVoted"
+        ).style.display =
+        "block";
 
-    await checkAlreadyVoted();
+
+        document.getElementById(
+            "partiesContainer"
+        ).style.display =
+        "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+function shareWhatsApp(){
+
+    const url =
+    window.location.href;
+
+
+    const message =
+    `🗳️ Encuesta Ciudadana Quilmaná 2026
+
+¿Por quién votarías?
+
+Participá en esta encuesta independiente para los pobladores de Quilmaná y sus anexos.
+
+${url}
+
+⚠️ Encuesta NO oficial. Los resultados son referenciales.`;
+
+
+    const whatsapp =
+    "https://wa.me/?text=" +
+    encodeURIComponent(
+        message
+    );
+
+
+    window.open(
+        whatsapp,
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   COPIAR ENLACE
+========================================================= */
+
+async function copyLink(){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            window.location.href
+        );
+
+
+        alert(
+            "✅ Enlace copiado correctamente."
+        );
+
+    }
+
+    catch(error){
+
+        alert(
+            "Copiá el enlace desde la barra del navegador."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   SCROLL RESULTADOS
+========================================================= */
+
+function scrollToResults(){
+
+    document.getElementById(
+        "resultsSection"
+    ).scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+/* =========================================================
+   VOLVER ARRIBA
+========================================================= */
+
+function scrollToTop(){
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    ()=>{
+
+        const button =
+        document.getElementById(
+            "backTop"
+        );
+
+
+        if(window.scrollY > 400){
+
+            button.classList.add(
+                "show"
+            );
+
+        }
+
+        else{
+
+            button.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SEGURIDAD HTML
+========================================================= */
+
+function escapeHtml(text){
+
+    return String(text)
+
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+
+    .replace(
+        /</g,
+        "&lt;"
+    )
+
+    .replace(
+        />/g,
+        "&gt;"
+    )
+
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escapeJs(text){
+
+    return String(text)
+
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+
+    .replace(
+        /'/g,
+        "\\'"
+    );
+
+}
+
+
+/* =========================================================
+   CERRAR MODAL
+========================================================= */
+
+document.getElementById(
+    "voteModal"
+).addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target === this
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INICIAR
+========================================================= */
+
+async function init(){
+
+    checkAlreadyVoted();
 
     await loadParties();
 
@@ -2336,6 +2641,16 @@ async function init() {
 
 
 init();
+
+
+/* =========================================================
+   ACTUALIZAR RESULTADOS CADA 5 SEGUNDOS
+========================================================= */
+
+setInterval(
+    loadResults,
+    5000
+);
 
 </script>
 
