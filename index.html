@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
     <meta charset="UTF-8">
@@ -26,35 +27,49 @@
             box-sizing: border-box;
         }
 
+
         :root {
+
             --primary: #0f172a;
-            --secondary: #2563eb;
-            --success: #16a34a;
-            --danger: #dc2626;
+
+            --blue: #2563eb;
+
+            --blue-dark: #1d4ed8;
+
+            --green: #16a34a;
+
             --background: #f1f5f9;
-            --card: #ffffff;
+
+            --white: #ffffff;
+
             --text: #0f172a;
+
             --muted: #64748b;
+
         }
 
+
         body {
+
             font-family:
-                Inter,
                 Arial,
                 Helvetica,
                 sans-serif;
 
-            background: var(--background);
+            background:
+                var(--background);
 
-            color: var(--text);
+            color:
+                var(--text);
 
             min-height: 100vh;
+
         }
 
 
-        /* =========================
+        /* =====================================
            HEADER
-        ========================= */
+        ===================================== */
 
         header {
 
@@ -65,279 +80,151 @@
                     #1e293b
                 );
 
-            color: white;
+            color:
+                white;
 
-            padding: 35px 20px;
+            text-align:
+                center;
 
-            text-align: center;
+            padding:
+                35px 20px;
 
             box-shadow:
-                0 5px 25px rgba(0,0,0,.18);
+                0 5px 25px
+                rgba(0,0,0,.18);
+
         }
 
 
         .logo {
 
-            width: 80px;
+            width:
+                85px;
 
-            height: 80px;
+            height:
+                85px;
 
-            object-fit: contain;
+            object-fit:
+                contain;
 
-            margin-bottom: 15px;
+            margin-bottom:
+                15px;
+
         }
 
 
         header h1 {
 
-            font-size: clamp(
-                25px,
-                5vw,
-                38px
-            );
+            font-size:
+                clamp(
+                    25px,
+                    5vw,
+                    38px
+                );
 
-            margin-bottom: 8px;
+            margin-bottom:
+                8px;
+
         }
 
 
         header p {
 
-            color: #cbd5e1;
+            color:
+                #cbd5e1;
 
-            font-size: 15px;
+            font-size:
+                15px;
+
         }
 
 
-        /* =========================
+        /* =====================================
            AVISO
-        ========================= */
+        ===================================== */
 
         .warning {
 
-            width: 92%;
+            width:
+                92%;
 
-            max-width: 1100px;
+            max-width:
+                1100px;
 
-            margin: 20px auto;
+            margin:
+                20px auto;
 
-            padding: 20px;
+            padding:
+                20px;
 
-            background: #fff7ed;
+            background:
+                #fff7ed;
 
             border:
-                1px solid
-                #fed7aa;
+                1px solid #fed7aa;
 
             border-left:
-                6px solid
-                #f97316;
+                6px solid #f97316;
 
-            border-radius: 14px;
+            border-radius:
+                14px;
 
-            color: #7c2d12;
+            color:
+                #7c2d12;
 
-            line-height: 1.6;
+            line-height:
+                1.6;
 
-            font-size: 14px;
+            font-size:
+                14px;
+
         }
 
 
         .warning-title {
 
-            font-size: 17px;
+            font-size:
+                17px;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            margin-bottom: 6px;
+            margin-bottom:
+                7px;
+
         }
 
 
-        /* =========================
+        /* =====================================
            CONTENEDOR
-        ========================= */
+        ===================================== */
 
         .container {
 
-            width: 92%;
+            width:
+                92%;
 
-            max-width: 1100px;
+            max-width:
+                1100px;
 
-            margin: auto;
+            margin:
+                auto;
+
         }
 
 
-        /* =========================
-           CÓDIGO
-        ========================= */
-
-        .code-section {
-
-            max-width: 520px;
-
-            margin: 35px auto;
-
-            background: white;
-
-            padding: 30px;
-
-            border-radius: 20px;
-
-            box-shadow:
-                0 10px 35px
-                rgba(0,0,0,.08);
-
-            text-align: center;
-        }
-
-
-        .code-icon {
-
-            font-size: 55px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .code-section h2 {
-
-            font-size: 25px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .code-section p {
-
-            color: var(--muted);
-
-            font-size: 14px;
-
-            margin-bottom: 22px;
-
-            line-height: 1.5;
-        }
-
-
-        .code-input {
-
-            width: 100%;
-
-            padding: 15px;
-
-            border:
-                2px solid
-                #e2e8f0;
-
-            border-radius: 12px;
-
-            text-align: center;
-
-            font-size: 18px;
-
-            font-weight: bold;
-
-            letter-spacing: 2px;
-
-            outline: none;
-
-            text-transform: uppercase;
-
-            transition: .2s;
-        }
-
-
-        .code-input:focus {
-
-            border-color:
-                var(--secondary);
-        }
-
-
-        .continue-btn {
-
-            width: 100%;
-
-            margin-top: 15px;
-
-            padding: 15px;
-
-            border: none;
-
-            border-radius: 12px;
-
-            background:
-                var(--secondary);
-
-            color: white;
-
-            font-size: 16px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: .2s;
-        }
-
-
-        .continue-btn:hover {
-
-            background: #1d4ed8;
-
-            transform:
-                translateY(-1px);
-        }
-
-
-        /* =========================
-           MENSAJE
-        ========================= */
-
-        .message {
-
-            display: none;
-
-            padding: 13px;
-
-            border-radius: 10px;
-
-            margin-top: 15px;
-
-            font-size: 14px;
-        }
-
-
-        .message.error {
-
-            display: block;
-
-            background: #fef2f2;
-
-            color: #991b1b;
-
-            border:
-                1px solid
-                #fecaca;
-        }
-
-
-        /* =========================
-           ENCUESTA
-        ========================= */
-
-        #pollSection {
-
-            display: none;
-
-            margin-top: 35px;
-        }
-
+        /* =====================================
+           INTRO
+        ===================================== */
 
         .intro {
 
-            text-align: center;
+            text-align:
+                center;
 
-            margin-bottom: 30px;
+            margin:
+                40px 0 30px;
+
         }
 
 
@@ -347,26 +234,34 @@
                 clamp(
                     24px,
                     4vw,
-                    31px
+                    32px
                 );
 
-            margin-bottom: 8px;
+            margin-bottom:
+                10px;
+
         }
 
 
         .intro p {
 
-            color: var(--muted);
+            color:
+                var(--muted);
+
+            font-size:
+                15px;
+
         }
 
 
-        /* =========================
+        /* =====================================
            PARTIDOS
-        ========================= */
+        ===================================== */
 
         .parties {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(
@@ -377,32 +272,37 @@
                     )
                 );
 
-            gap: 20px;
+            gap:
+                20px;
+
         }
 
 
         .party {
 
             background:
-                var(--card);
+                white;
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
-            padding: 25px 20px;
+            padding:
+                25px 20px;
 
-            text-align: center;
+            text-align:
+                center;
 
             border:
-                1px solid
-                #e2e8f0;
+                1px solid #e2e8f0;
 
             box-shadow:
                 0 8px 25px
                 rgba(0,0,0,.06);
 
             transition:
-                transform .2s,
-                box-shadow .2s;
+                transform .2s ease,
+                box-shadow .2s ease;
+
         }
 
 
@@ -413,95 +313,126 @@
 
             box-shadow:
                 0 15px 35px
-                rgba(0,0,0,.11);
+                rgba(0,0,0,.12);
+
         }
 
 
         .party img {
 
-            width: 125px;
+            width:
+                125px;
 
-            height: 125px;
+            height:
+                125px;
 
-            object-fit: contain;
+            object-fit:
+                contain;
 
-            margin-bottom: 15px;
+            margin-bottom:
+                15px;
+
         }
 
 
         .party h3 {
 
-            font-size: 18px;
+            font-size:
+                18px;
 
-            margin-bottom: 15px;
+            margin-bottom:
+                15px;
+
         }
 
 
         .vote-btn {
 
-            width: 100%;
+            width:
+                100%;
 
-            padding: 13px;
+            padding:
+                14px;
 
-            border: none;
+            border:
+                none;
 
-            border-radius: 11px;
+            border-radius:
+                11px;
 
             background:
                 var(--primary);
 
-            color: white;
+            color:
+                white;
 
-            font-size: 14px;
+            font-size:
+                14px;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            cursor: pointer;
+            cursor:
+                pointer;
 
-            transition: .2s;
+            transition:
+                .2s;
+
         }
 
 
         .vote-btn:hover {
 
             background:
-                var(--secondary);
+                var(--blue);
+
         }
 
 
-        /* =========================
+        /* =====================================
            RESULTADOS
-        ========================= */
+        ===================================== */
 
-        .results-section {
+        .results {
 
-            margin: 50px 0;
+            margin:
+                50px 0;
 
-            background: white;
+            background:
+                white;
 
-            padding: 30px;
+            padding:
+                30px;
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
             box-shadow:
                 0 8px 30px
                 rgba(0,0,0,.07);
+
         }
 
 
         .results-header {
 
-            text-align: center;
+            text-align:
+                center;
 
-            margin-bottom: 30px;
+            margin-bottom:
+                30px;
+
         }
 
 
         .results-header h2 {
 
-            font-size: 27px;
+            font-size:
+                27px;
 
-            margin-bottom: 7px;
+            margin-bottom:
+                8px;
+
         }
 
 
@@ -513,30 +444,38 @@
             align-items:
                 center;
 
-            gap: 7px;
+            gap:
+                7px;
 
             color:
-                var(--success);
+                var(--green);
 
-            font-size: 13px;
+            font-size:
+                13px;
 
-            font-weight: bold;
+            font-weight:
+                bold;
+
         }
 
 
         .live-dot {
 
-            width: 9px;
+            width:
+                9px;
 
-            height: 9px;
+            height:
+                9px;
 
             background:
                 #22c55e;
 
-            border-radius: 50%;
+            border-radius:
+                50%;
 
             animation:
                 pulse 1.5s infinite;
+
         }
 
 
@@ -559,58 +498,75 @@
 
         .result {
 
-            margin-bottom: 20px;
+            margin-bottom:
+                20px;
+
         }
 
 
         .result-info {
 
-            display: flex;
+            display:
+                flex;
 
             justify-content:
                 space-between;
 
-            margin-bottom: 7px;
+            margin-bottom:
+                7px;
 
-            font-size: 14px;
+            font-size:
+                14px;
+
         }
 
 
         .result-name {
 
-            font-weight: bold;
+            font-weight:
+                bold;
+
         }
 
 
         .result-percent {
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
             color:
-                var(--secondary);
+                var(--blue);
+
         }
 
 
         .bar {
 
-            width: 100%;
+            width:
+                100%;
 
-            height: 13px;
+            height:
+                13px;
 
             background:
                 #e2e8f0;
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
-            overflow: hidden;
+            overflow:
+                hidden;
+
         }
 
 
         .bar-fill {
 
-            height: 100%;
+            height:
+                100%;
 
-            width: 0%;
+            width:
+                0%;
 
             background:
                 linear-gradient(
@@ -619,36 +575,46 @@
                     #60a5fa
                 );
 
-            border-radius: 20px;
+            border-radius:
+                20px;
 
             transition:
                 width .5s ease;
+
         }
 
 
         .result-votes {
 
-            margin-top: 5px;
-
             color:
                 var(--muted);
 
-            font-size: 12px;
+            font-size:
+                12px;
+
+            margin-top:
+                5px;
+
         }
 
 
         .total {
 
-            margin-top: 30px;
+            margin-top:
+                30px;
 
-            padding: 20px;
+            padding:
+                20px;
 
-            text-align: center;
+            text-align:
+                center;
 
             background:
                 #f8fafc;
 
-            border-radius: 14px;
+            border-radius:
+                14px;
+
         }
 
 
@@ -657,109 +623,115 @@
             color:
                 var(--muted);
 
-            font-size: 14px;
+            font-size:
+                14px;
+
         }
 
 
         .total-number {
 
-            font-size: 35px;
+            font-size:
+                35px;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            margin-top: 5px;
+            margin-top:
+                5px;
+
         }
 
 
-        /* =========================
+        /* =====================================
            MODAL
-        ========================= */
+        ===================================== */
 
         .modal {
 
-            position: fixed;
+            position:
+                fixed;
 
-            inset: 0;
+            inset:
+                0;
 
             background:
                 rgba(
                     15,
                     23,
                     42,
-                    .72
+                    .75
                 );
 
-            display: none;
+            display:
+                none;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
-            padding: 20px;
+            padding:
+                20px;
 
-            z-index: 9999;
+            z-index:
+                9999;
+
         }
 
 
         .modal.active {
 
-            display: flex;
+            display:
+                flex;
+
         }
 
 
         .modal-content {
 
-            width: 100%;
+            width:
+                100%;
 
-            max-width: 450px;
+            max-width:
+                450px;
 
-            background: white;
+            background:
+                white;
 
-            border-radius: 22px;
+            border-radius:
+                22px;
 
-            padding: 30px;
+            padding:
+                30px;
 
-            text-align: center;
+            text-align:
+                center;
 
             box-shadow:
                 0 25px 70px
                 rgba(0,0,0,.3);
-
-            animation:
-                modalIn .2s ease;
-        }
-
-
-        @keyframes modalIn {
-
-            from {
-                transform:
-                    scale(.9);
-
-                opacity: 0;
-            }
-
-            to {
-                transform:
-                    scale(1);
-
-                opacity: 1;
-            }
 
         }
 
 
         .modal-icon {
 
-            font-size: 50px;
+            font-size:
+                50px;
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
+
         }
 
 
         .modal h2 {
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
+
         }
 
 
@@ -768,45 +740,63 @@
             color:
                 var(--muted);
 
-            line-height: 1.5;
+            line-height:
+                1.5;
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
+
         }
 
 
         .selected-party {
 
-            display: block;
+            display:
+                block;
 
-            font-size: 20px;
+            font-size:
+                20px;
 
-            margin: 15px 0;
+            margin:
+                15px 0;
+
         }
 
 
         .modal-buttons {
 
-            display: flex;
+            display:
+                flex;
 
-            gap: 10px;
+            gap:
+                10px;
 
-            margin-top: 20px;
+            margin-top:
+                20px;
+
         }
 
 
         .modal-buttons button {
 
-            flex: 1;
+            flex:
+                1;
 
-            padding: 14px;
+            padding:
+                14px;
 
-            border: none;
+            border:
+                none;
 
-            border-radius: 11px;
+            border-radius:
+                11px;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            cursor: pointer;
+            cursor:
+                pointer;
+
         }
 
 
@@ -817,55 +807,71 @@
 
             color:
                 var(--text);
+
         }
 
 
         .confirm {
 
             background:
-                var(--secondary);
+                var(--blue);
 
-            color: white;
+            color:
+                white;
+
         }
 
 
-        /* =========================
+        /* =====================================
            ÉXITO
-        ========================= */
+        ===================================== */
 
         .success {
 
-            display: none;
+            display:
+                none;
 
-            max-width: 520px;
+            max-width:
+                520px;
 
-            margin: 35px auto;
+            margin:
+                40px auto;
 
-            background: white;
+            background:
+                white;
 
-            border-radius: 22px;
+            border-radius:
+                22px;
 
-            padding: 40px 25px;
+            padding:
+                40px 25px;
 
-            text-align: center;
+            text-align:
+                center;
 
             box-shadow:
                 0 10px 35px
                 rgba(0,0,0,.08);
+
         }
 
 
         .success-icon {
 
-            font-size: 65px;
+            font-size:
+                65px;
 
-            margin-bottom: 15px;
+            margin-bottom:
+                15px;
+
         }
 
 
         .success h2 {
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
+
         }
 
 
@@ -874,38 +880,49 @@
             color:
                 var(--muted);
 
-            line-height: 1.5;
+            line-height:
+                1.5;
 
-            margin-bottom: 20px;
+            margin-bottom:
+                20px;
+
         }
 
 
-        .results-btn {
+        .results-button {
 
-            padding: 14px 25px;
+            padding:
+                14px 25px;
 
-            border: none;
+            border:
+                none;
 
-            border-radius: 11px;
+            border-radius:
+                11px;
 
             background:
-                var(--secondary);
+                var(--blue);
 
-            color: white;
+            color:
+                white;
 
-            font-weight: bold;
+            font-weight:
+                bold;
 
-            cursor: pointer;
+            cursor:
+                pointer;
+
         }
 
 
-        /* =========================
+        /* =====================================
            FOOTER
-        ========================= */
+        ===================================== */
 
         footer {
 
-            margin-top: 50px;
+            margin-top:
+                50px;
 
             background:
                 #020617;
@@ -913,63 +930,59 @@
             color:
                 #94a3b8;
 
-            text-align: center;
+            text-align:
+                center;
 
-            padding: 35px 20px;
+            padding:
+                35px 20px;
 
-            font-size: 13px;
+            font-size:
+                13px;
 
-            line-height: 1.7;
+            line-height:
+                1.7;
+
         }
 
 
         footer strong {
 
-            color: white;
+            color:
+                white;
+
         }
 
 
-        /* =========================
-           LOADING
-        ========================= */
-
-        .loading {
-
-            opacity: .6;
-
-            pointer-events: none;
-        }
-
-
-        /* =========================
+        /* =====================================
            RESPONSIVE
-        ========================= */
+        ===================================== */
 
         @media(max-width:600px) {
 
             .warning {
 
-                width: 94%;
+                width:
+                    94%;
 
-                font-size: 13px;
+                font-size:
+                    13px;
+
             }
 
 
-            .code-section {
+            .results {
 
-                padding: 25px 20px;
-            }
+                padding:
+                    22px 18px;
 
-
-            .results-section {
-
-                padding: 22px 18px;
             }
 
 
             .modal-buttons {
 
-                flex-direction: column;
+                flex-direction:
+                    column;
+
             }
 
         }
@@ -982,17 +995,19 @@
 <body>
 
 
-<!-- =====================================================
+<!-- ============================================
      HEADER
-===================================================== -->
+============================================= -->
 
 <header>
 
     <img
         src="img/logo-encuesta.png"
-        alt="Encuesta Ciudadana Quilmaná"
+        alt="Encuesta Quilmaná"
         class="logo"
-        onerror="this.style.display='none'"
+        onerror="
+            this.style.display='none'
+        "
     >
 
     <h1>
@@ -1006,17 +1021,20 @@
 </header>
 
 
-<!-- =====================================================
+<!-- ============================================
      AVISO
-===================================================== -->
+============================================= -->
 
 <div class="warning">
 
     <div class="warning-title">
+
         ⚠️ ENCUESTA NO OFICIAL
+
     </div>
 
     Esta página web es una encuesta ciudadana independiente y
+
     <strong>
         NO está autorizada, administrada ni vinculada oficialmente
         con la ONPE, el JNE, la Municipalidad Distrital de Quilmaná
@@ -1026,7 +1044,8 @@
     Su finalidad es únicamente conocer la opinión de los pobladores
     de Quilmaná y sus anexos.
 
-    Los resultados publicados son exclusivamente referenciales y
+    Los resultados son exclusivamente referenciales y
+
     <strong>
         no representan resultados electorales oficiales.
     </strong>
@@ -1037,89 +1056,44 @@
 <main class="container">
 
 
-<!-- =====================================================
-     INGRESO DEL CÓDIGO
-===================================================== -->
+<!-- ============================================
+     INTRO
+============================================= -->
 
-<section
-    class="code-section"
-    id="codeSection"
->
-
-    <div class="code-icon">
-        🔑
-    </div>
+<section class="intro">
 
     <h2>
-        Código de participación
+        ¿Por quién votarías?
     </h2>
 
     <p>
-        Ingresá el código que te fue asignado
-        para participar en esta encuesta.
+        Seleccioná una sola organización política.
     </p>
 
-    <input
-        type="text"
-        id="codeInput"
-        class="code-input"
-        placeholder="QM-XXXXXXXXXX"
-        maxlength="13"
-        autocomplete="off"
-    >
-
-    <button
-        class="continue-btn"
-        id="continueBtn"
-        onclick="validateCode()"
-    >
-        CONTINUAR
-    </button>
-
-    <div
-        id="codeMessage"
-        class="message"
-    ></div>
-
 </section>
 
 
-<!-- =====================================================
-     ENCUESTA
-===================================================== -->
+<!-- ============================================
+     PARTIDOS
+============================================= -->
 
 <section
-    id="pollSection"
+    class="parties"
+    id="partiesContainer"
 >
 
-    <div class="intro">
-
-        <h2>
-            ¿Por quién votarías?
-        </h2>
-
-        <p>
-            Seleccioná una sola organización política.
-        </p>
-
-    </div>
-
-
-    <div
-        class="parties"
-        id="partiesContainer"
-    >
-
-    </div>
+    <p>
+        Cargando organizaciones políticas...
+    </p>
 
 </section>
 
 
-<!-- =====================================================
+<!-- ============================================
      RESULTADOS
-===================================================== -->
+============================================= -->
 
-<section class="results-section">
+<section class="results">
 
     <div class="results-header">
 
@@ -1131,7 +1105,7 @@
 
             <span class="live-dot"></span>
 
-            ACTUALIZACIÓN EN TIEMPO REAL
+            RESULTADOS ACTUALIZADOS
 
         </div>
 
@@ -1140,9 +1114,7 @@
 
     <div id="resultsContainer">
 
-        <p style="text-align:center;color:#64748b;">
-            Cargando resultados...
-        </p>
+        Cargando resultados...
 
     </div>
 
@@ -1150,14 +1122,18 @@
     <div class="total">
 
         <div class="total-label">
+
             TOTAL DE PARTICIPANTES
+
         </div>
 
         <div
             class="total-number"
             id="totalVotes"
         >
+
             0
+
         </div>
 
     </div>
@@ -1165,9 +1141,9 @@
 </section>
 
 
-<!-- =====================================================
-     MENSAJE DE ÉXITO
-===================================================== -->
+<!-- ============================================
+     ÉXITO
+============================================= -->
 
 <section
     class="success"
@@ -1179,19 +1155,28 @@
     </div>
 
     <h2>
-        ¡Voto registrado!
+        ¡Gracias por participar!
     </h2>
 
     <p>
-        Tu participación fue registrada correctamente.
-        El código utilizado ya no puede volver a utilizarse.
+
+        Tu voto fue registrado correctamente.
+
+        <br><br>
+
+        El sistema no permite registrar
+        nuevamente el mismo identificador
+        de participación.
+
     </p>
 
     <button
-        class="results-btn"
+        class="results-button"
         onclick="scrollToResults()"
     >
+
         📊 VER RESULTADOS
+
     </button>
 
 </section>
@@ -1200,9 +1185,9 @@
 </main>
 
 
-<!-- =====================================================
+<!-- ============================================
      MODAL
-===================================================== -->
+============================================= -->
 
 <div
     class="modal"
@@ -1231,11 +1216,13 @@
         </strong>
 
         <p>
+
             Una vez confirmado,
+
             <strong>
-                tu voto no podrá modificarse
-                y el código será inutilizado.
+                no podrás modificar tu voto.
             </strong>
+
         </p>
 
         <div class="modal-buttons">
@@ -1244,15 +1231,20 @@
                 class="cancel"
                 onclick="closeModal()"
             >
+
                 CANCELAR
+
             </button>
+
 
             <button
                 class="confirm"
-                id="confirmBtn"
+                id="confirmButton"
                 onclick="confirmVote()"
             >
+
                 CONFIRMAR VOTO
+
             </button>
 
         </div>
@@ -1262,9 +1254,9 @@
 </div>
 
 
-<!-- =====================================================
+<!-- ============================================
      FOOTER
-===================================================== -->
+============================================= -->
 
 <footer>
 
@@ -1285,16 +1277,17 @@
 
     <br><br>
 
-    Los resultados son únicamente referenciales y corresponden
-    exclusivamente a esta encuesta ciudadana.
+    Los resultados son únicamente referenciales
+    y corresponden exclusivamente a esta encuesta.
 
 </footer>
 
 
 <script>
 
+
 /* =====================================================
-   CONFIGURACIÓN SUPABASE
+   SUPABASE
 ===================================================== */
 
 const SUPABASE_URL =
@@ -1309,15 +1302,50 @@ const SUPABASE_KEY =
    VARIABLES
 ===================================================== */
 
-let votingCode = "";
-
 let selectedPartyId = null;
 
 let selectedPartyName = "";
 
+let anonymousId = "";
+
 
 /* =====================================================
-   PETICIÓN A SUPABASE
+   CREAR IDENTIFICADOR ANÓNIMO
+===================================================== */
+
+function getAnonymousId() {
+
+    let id =
+        localStorage.getItem(
+            "quilmana_vote_id"
+        );
+
+
+    if (!id) {
+
+        id =
+            crypto.randomUUID();
+
+
+        localStorage.setItem(
+            "quilmana_vote_id",
+            id
+        );
+
+    }
+
+
+    return id;
+
+}
+
+
+anonymousId =
+    getAnonymousId();
+
+
+/* =====================================================
+   PETICIÓN SUPABASE
 ===================================================== */
 
 async function supabaseRequest(
@@ -1325,29 +1353,33 @@ async function supabaseRequest(
     options = {}
 ) {
 
-    const response = await fetch(
-        `${SUPABASE_URL}/rest/v1/${endpoint}`,
-        {
+    const response =
+        await fetch(
 
-            ...options,
+            `${SUPABASE_URL}/rest/v1/${endpoint}`,
 
-            headers: {
+            {
 
-                "apikey":
-                    SUPABASE_KEY,
+                ...options,
 
-                "Authorization":
-                    `Bearer ${SUPABASE_KEY}`,
+                headers: {
 
-                "Content-Type":
-                    "application/json",
+                    "apikey":
+                        SUPABASE_KEY,
 
-                ...(options.headers || {})
+                    "Authorization":
+                        `Bearer ${SUPABASE_KEY}`,
+
+                    "Content-Type":
+                        "application/json",
+
+                    ...(options.headers || {})
+
+                }
 
             }
 
-        }
-    );
+        );
 
 
     if (!response.ok) {
@@ -1404,7 +1436,7 @@ async function loadParties() {
                 card.innerHTML = `
 
                     <img
-                        src="${party.logo}"
+                        src="${escapeHtml(party.logo)}"
                         alt="${escapeHtml(party.nombre)}"
                         onerror="
                             this.style.display='none'
@@ -1424,7 +1456,9 @@ async function loadParties() {
                             )
                         "
                     >
+
                         VOTAR
+
                     </button>
 
                 `;
@@ -1441,138 +1475,27 @@ async function loadParties() {
 
     catch(error) {
 
-        console.error(error);
-
-        showCodeError(
-            "No se pudieron cargar las organizaciones políticas."
+        console.error(
+            error
         );
-
-    }
-
-}
-
-
-/* =====================================================
-   VALIDAR CÓDIGO
-===================================================== */
-
-async function validateCode() {
-
-    const input =
-        document.getElementById(
-            "codeInput"
-        );
-
-
-    const btn =
-        document.getElementById(
-            "continueBtn"
-        );
-
-
-    const message =
-        document.getElementById(
-            "codeMessage"
-        );
-
-
-    const code =
-        input.value
-            .trim()
-            .toUpperCase();
-
-
-    message.className =
-        "message";
-
-
-    if (!code) {
-
-        showCodeError(
-            "Ingresá tu código de participación."
-        );
-
-        return;
-
-    }
-
-
-    btn.classList.add(
-        "loading"
-    );
-
-    btn.textContent =
-        "VERIFICANDO...";
-
-
-    try {
-
-        /*
-         * No leemos la tabla de códigos
-         * directamente.
-         *
-         * La validación real ocurre cuando
-         * se intenta registrar el voto.
-         *
-         * Acá solamente comprobamos el formato.
-         */
-
-
-        if (
-            !/^QM-[A-Z0-9]{10}$/.test(code)
-        ) {
-
-            throw new Error(
-                "El formato del código no es válido."
-            );
-
-        }
-
-
-        votingCode = code;
 
 
         document.getElementById(
-            "codeSection"
-        ).style.display =
-            "none";
+            "partiesContainer"
+        ).innerHTML = `
 
+            <p style="
+                text-align:center;
+                color:#dc2626;
+                grid-column:1/-1;
+            ">
 
-        document.getElementById(
-            "pollSection"
-        ).style.display =
-            "block";
+                No se pudieron cargar
+                las organizaciones políticas.
 
+            </p>
 
-        await loadParties();
-
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-
-    catch(error) {
-
-        console.error(error);
-
-        showCodeError(
-            error.message ||
-            "Código inválido."
-        );
-
-    }
-
-    finally {
-
-        btn.classList.remove(
-            "loading"
-        );
-
-        btn.textContent =
-            "CONTINUAR";
+        `;
 
     }
 
@@ -1590,6 +1513,7 @@ function openVoteModal(
 
     selectedPartyId =
         partyId;
+
 
     selectedPartyName =
         partyName;
@@ -1631,10 +1555,7 @@ function closeModal() {
 
 async function confirmVote() {
 
-    if (
-        !votingCode ||
-        !selectedPartyId
-    ) {
+    if (!selectedPartyId) {
 
         return;
 
@@ -1643,11 +1564,13 @@ async function confirmVote() {
 
     const button =
         document.getElementById(
-            "confirmBtn"
+            "confirmButton"
         );
 
 
-    button.disabled = true;
+    button.disabled =
+        true;
+
 
     button.textContent =
         "REGISTRANDO...";
@@ -1657,10 +1580,13 @@ async function confirmVote() {
 
         const response =
             await fetch(
+
                 `${SUPABASE_URL}/rest/v1/rpc/registrar_voto`,
+
                 {
 
-                    method: "POST",
+                    method:
+                        "POST",
 
                     headers: {
 
@@ -1675,17 +1601,19 @@ async function confirmVote() {
 
                     },
 
-                    body: JSON.stringify({
+                    body:
+                        JSON.stringify({
 
-                        p_codigo:
-                            votingCode,
+                            p_partido_id:
+                                selectedPartyId,
 
-                        p_partido_id:
-                            selectedPartyId
+                            p_identificador:
+                                anonymousId
 
-                    })
+                        })
 
                 }
+
             );
 
 
@@ -1693,15 +1621,7 @@ async function confirmVote() {
             await response.json();
 
 
-        console.log(
-            "Respuesta:",
-            result
-        );
-
-
-        if (
-            !response.ok
-        ) {
+        if (!response.ok) {
 
             throw new Error(
                 "No se pudo registrar el voto."
@@ -1710,23 +1630,36 @@ async function confirmVote() {
         }
 
 
-        if (
-            !result.success
-        ) {
+        if (!result.success) {
 
             throw new Error(
-                result.message ||
-                "El voto no pudo registrarse."
+                result.message
             );
 
         }
 
 
+        /*
+         * Marcar localmente como votado.
+         */
+
+        localStorage.setItem(
+            "quilmana_has_voted",
+            "true"
+        );
+
+
         closeModal();
 
 
-        document.getElementById(
-            "pollSection"
+        document.querySelector(
+            ".parties"
+        ).style.display =
+            "none";
+
+
+        document.querySelector(
+            ".intro"
         ).style.display =
             "none";
 
@@ -1735,13 +1668,6 @@ async function confirmVote() {
             "successSection"
         ).style.display =
             "block";
-
-
-        votingCode = "";
-
-        selectedPartyId = null;
-
-        selectedPartyName = "";
 
 
         await loadResults();
@@ -1753,7 +1679,10 @@ async function confirmVote() {
 
     catch(error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
+
 
         alert(
             error.message ||
@@ -1764,7 +1693,9 @@ async function confirmVote() {
 
     finally {
 
-        button.disabled = false;
+        button.disabled =
+            false;
+
 
         button.textContent =
             "CONFIRMAR VOTO";
@@ -1775,17 +1706,64 @@ async function confirmVote() {
 
 
 /* =====================================================
-   CARGAR RESULTADOS
+   RESULTADOS
 ===================================================== */
 
 async function loadResults() {
 
     try {
 
+        /*
+         * Obtenemos los partidos.
+         */
+
         const parties =
             await supabaseRequest(
-                "partidos?select=id,nombre,votos&activo=eq.true&order=votos.desc"
+
+                "partidos?select=id,nombre,votos:count(votos)&activo=eq.true"
+
             );
+
+
+        /*
+         * Como la relación puede variar,
+         * utilizamos una consulta directa
+         * de votos para obtener los conteos.
+         */
+
+        const votes =
+            await supabaseRequest(
+                "votos?select=partido_id"
+            );
+
+
+        const counts = {};
+
+
+        votes.forEach(
+            vote => {
+
+                counts[
+                    vote.partido_id
+                ] =
+                    (
+                        counts[
+                            vote.partido_id
+                        ] || 0
+                    ) + 1;
+
+            }
+        );
+
+
+        const partyList =
+            await supabaseRequest(
+                "partidos?select=id,nombre&activo=eq.true&order=id.asc"
+            );
+
+
+        let total =
+            votes.length;
 
 
         const container =
@@ -1797,92 +1775,105 @@ async function loadResults() {
         container.innerHTML = "";
 
 
-        let total = 0;
+        partyList
+            .sort(
+                (a,b) =>
+                    (
+                        counts[b.id] || 0
+                    )
+                    -
+                    (
+                        counts[a.id] || 0
+                    )
+            )
+            .forEach(
+                party => {
+
+                    const voteCount =
+                        counts[
+                            party.id
+                        ] || 0;
 
 
-        parties.forEach(
-            party => {
+                    const percentage =
+                        total > 0
 
-                total +=
-                    Number(
-                        party.votos || 0
-                    );
+                        ?
 
-            }
-        );
-
-
-        parties.forEach(
-            party => {
-
-                const votes =
-                    Number(
-                        party.votos || 0
-                    );
-
-
-                const percentage =
-                    total > 0
-                        ? (
-                            votes /
+                        (
+                            voteCount /
                             total *
                             100
-                        )
-                            .toFixed(1)
-                        : "0.0";
+                        ).toFixed(1)
+
+                        :
+
+                        "0.0";
 
 
-                const result =
-                    document.createElement(
-                        "div"
+                    const result =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    result.className =
+                        "result";
+
+
+                    result.innerHTML = `
+
+                        <div class="result-info">
+
+                            <span class="result-name">
+
+                                ${escapeHtml(
+                                    party.nombre
+                                )}
+
+                            </span>
+
+                            <span class="result-percent">
+
+                                ${percentage}%
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="bar">
+
+                            <div
+                                class="bar-fill"
+                                style="
+                                    width:${percentage}%
+                                "
+                            ></div>
+
+                        </div>
+
+
+                        <div class="result-votes">
+
+                            ${voteCount}
+                            ${
+                                voteCount === 1
+                                ? "voto"
+                                : "votos"
+                            }
+
+                        </div>
+
+                    `;
+
+
+                    container.appendChild(
+                        result
                     );
 
-
-                result.className =
-                    "result";
-
-
-                result.innerHTML = `
-
-                    <div class="result-info">
-
-                        <span class="result-name">
-                            ${escapeHtml(party.nombre)}
-                        </span>
-
-                        <span class="result-percent">
-                            ${percentage}%
-                        </span>
-
-                    </div>
-
-                    <div class="bar">
-
-                        <div
-                            class="bar-fill"
-                            style="
-                                width:${percentage}%
-                            "
-                        ></div>
-
-                    </div>
-
-                    <div class="result-votes">
-
-                        ${votes}
-                        ${votes === 1 ? "voto" : "votos"}
-
-                    </div>
-
-                `;
-
-
-                container.appendChild(
-                    result
-                );
-
-            }
-        );
+                }
+            );
 
 
         document.getElementById(
@@ -1897,7 +1888,7 @@ async function loadResults() {
     catch(error) {
 
         console.error(
-            "Error resultados:",
+            "Resultados:",
             error
         );
 
@@ -1907,68 +1898,31 @@ async function loadResults() {
 
 
 /* =====================================================
-   ACTUALIZAR RESULTADOS
+   ACTUALIZACIÓN AUTOMÁTICA
 ===================================================== */
 
-function startLiveResults() {
-
-    loadResults();
-
-
-    /*
-     * Actualización cada 5 segundos.
-     *
-     * Más adelante podemos conectar
-     * Supabase Realtime directamente.
-     */
-
-    setInterval(
-        loadResults,
-        5000
-    );
-
-}
+setInterval(
+    loadResults,
+    5000
+);
 
 
 /* =====================================================
-   SCROLL RESULTADOS
+   SCROLL
 ===================================================== */
 
 function scrollToResults() {
 
-    const results =
-        document.querySelector(
-            ".results-section"
-        );
+    document
+        .querySelector(
+            ".results"
+        )
+        .scrollIntoView({
 
+            behavior:
+                "smooth"
 
-    results.scrollIntoView({
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =====================================================
-   MENSAJE DE ERROR
-===================================================== */
-
-function showCodeError(
-    text
-) {
-
-    const message =
-        document.getElementById(
-            "codeMessage"
-        );
-
-
-    message.textContent =
-        text;
-
-
-    message.className =
-        "message error";
+        });
 
 }
 
@@ -1982,22 +1936,27 @@ function escapeHtml(
 ) {
 
     return String(text)
+
         .replace(
             /&/g,
             "&amp;"
         )
+
         .replace(
             /</g,
             "&lt;"
         )
+
         .replace(
             />/g,
             "&gt;"
         )
+
         .replace(
             /"/g,
             "&quot;"
         )
+
         .replace(
             /'/g,
             "&#039;"
@@ -2011,10 +1970,12 @@ function escapeJs(
 ) {
 
     return String(text)
+
         .replace(
             /\\/g,
             "\\\\"
         )
+
         .replace(
             /'/g,
             "\\'"
@@ -2024,7 +1985,7 @@ function escapeJs(
 
 
 /* =====================================================
-   CERRAR MODAL HACIENDO CLICK AFUERA
+   CERRAR MODAL
 ===================================================== */
 
 document
@@ -2048,39 +2009,17 @@ document
 
 
 /* =====================================================
-   ENTER EN CÓDIGO
+   INICIALIZAR
 ===================================================== */
 
-document
-    .getElementById(
-        "codeInput"
-    )
-    .addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Enter"
-            ) {
-
-                validateCode();
-
-            }
-
-        }
-    );
-
-
-/* =====================================================
-   INICIAR
-===================================================== */
+loadParties();
 
 loadResults();
 
-startLiveResults();
 
 </script>
 
 
 </body>
+
 </html>
