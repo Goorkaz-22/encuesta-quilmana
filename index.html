@@ -2737,11 +2737,11 @@ async function shareResults(){
 
 
         let message =
-        `🗳️ RESULTADOS DE LA ENCUESTA CIUDADANA QUILMANÁ 2026\n\n`;
+        `RESULTADOS DE LA ENCUESTA CIUDADANA QUILMANA 2026\n\n`;
 
 
         message +=
-        `👥 Participantes: ${total.toLocaleString("es-PE")}\n\n`;
+        `PARTICIPANTES: ${total.toLocaleString("es-PE")}\n\n`;
 
 
         results.forEach((item, index) => {
@@ -2756,38 +2756,26 @@ async function shareResults(){
             : "0.0";
 
 
-            let position = "";
-
-            if(index === 0){
-                position = "🥇";
-            }
-            else if(index === 1){
-                position = "🥈";
-            }
-            else if(index === 2){
-                position = "🥉";
-            }
-            else{
-                position = "▫️";
-            }
+            let position =
+            `${index + 1}.`;
 
 
             message +=
-            `${position} ${item.nombre} — ${percentage}% (${votes} ${votes === 1 ? "voto" : "votos"})\n`;
+            `${position} ${item.nombre} - ${percentage}% (${votes} ${votes === 1 ? "voto" : "votos"})\n`;
 
         });
 
 
         message +=
-        `\n📊 Resultados referenciales de una encuesta independiente.\n\n`;
+        `\nRESULTADOS REFERENCIALES DE UNA ENCUESTA INDEPENDIENTE.\n\n`;
 
 
         message +=
-        `⚠️ NO ES UNA ENCUESTA OFICIAL Y NO REPRESENTA RESULTADOS ELECTORALES OFICIALES.\n\n`;
+        `IMPORTANTE: ESTA NO ES UNA ENCUESTA OFICIAL Y NO REPRESENTA RESULTADOS ELECTORALES OFICIALES.\n\n`;
 
 
         message +=
-        `🔗 Ver resultados:\n${window.location.href}`;
+        `VER RESULTADOS:\n${window.location.href}`;
 
 
         const whatsappURL =
@@ -2816,8 +2804,7 @@ async function shareResults(){
 
     }
 
-}
-   
+}   
 </script>
 
 
