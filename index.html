@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Encuesta Ciudadana Quilmaná 2026</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta name="description"
-        content="Encuesta ciudadana independiente para los pobladores de Quilmaná y sus anexos.">
+    <title>
+        Encuesta Ciudadana Quilmaná 2026
+    </title>
+
+    <meta
+        name="description"
+        content="Encuesta ciudadana independiente para los pobladores de Quilmaná y sus anexos."
+    >
 
     <style>
 
@@ -17,162 +26,252 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f4f6f8;
-            color: #1f2937;
+        :root {
+            --primary: #0f172a;
+            --secondary: #2563eb;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --background: #f1f5f9;
+            --card: #ffffff;
+            --text: #0f172a;
+            --muted: #64748b;
         }
+
+        body {
+            font-family:
+                Inter,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background: var(--background);
+
+            color: var(--text);
+
+            min-height: 100vh;
+        }
+
 
         /* =========================
            HEADER
         ========================= */
 
         header {
-            background: linear-gradient(135deg, #111827, #1f2937);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #020617,
+                    #1e293b
+                );
+
             color: white;
-            padding: 25px 20px;
+
+            padding: 35px 20px;
+
             text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,.15);
+
+            box-shadow:
+                0 5px 25px rgba(0,0,0,.18);
         }
+
 
         .logo {
-            width: 75px;
-            height: 75px;
+
+            width: 80px;
+
+            height: 80px;
+
             object-fit: contain;
-            margin-bottom: 10px;
+
+            margin-bottom: 15px;
         }
 
+
         header h1 {
-            font-size: 30px;
+
+            font-size: clamp(
+                25px,
+                5vw,
+                38px
+            );
+
             margin-bottom: 8px;
         }
 
+
         header p {
-            color: #d1d5db;
+
+            color: #cbd5e1;
+
             font-size: 15px;
         }
+
 
         /* =========================
            AVISO
         ========================= */
 
         .warning {
+
+            width: 92%;
+
             max-width: 1100px;
+
             margin: 20px auto;
-            padding: 18px 20px;
+
+            padding: 20px;
 
             background: #fff7ed;
-            border: 1px solid #fdba74;
-            border-left: 6px solid #f97316;
 
-            border-radius: 12px;
+            border:
+                1px solid
+                #fed7aa;
+
+            border-left:
+                6px solid
+                #f97316;
+
+            border-radius: 14px;
 
             color: #7c2d12;
 
-            font-size: 14px;
             line-height: 1.6;
+
+            font-size: 14px;
         }
 
-        .warning strong {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 16px;
+
+        .warning-title {
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            margin-bottom: 6px;
         }
+
 
         /* =========================
            CONTENEDOR
         ========================= */
 
         .container {
+
             width: 92%;
+
             max-width: 1100px;
+
             margin: auto;
         }
 
-        .intro {
-            text-align: center;
-            margin: 35px 0 25px;
-        }
-
-        .intro h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #111827;
-        }
-
-        .intro p {
-            color: #6b7280;
-        }
 
         /* =========================
-           PARTIDOS
+           CÓDIGO
         ========================= */
 
-        .parties {
-            display: grid;
+        .code-section {
 
-            grid-template-columns:
-                repeat(auto-fit, minmax(250px, 1fr));
+            max-width: 520px;
 
-            gap: 20px;
+            margin: 35px auto;
 
-            margin-bottom: 35px;
-        }
-
-        .party {
             background: white;
 
-            border-radius: 18px;
+            padding: 30px;
 
-            padding: 25px 20px;
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,.08);
+
+            text-align: center;
+        }
+
+
+        .code-icon {
+
+            font-size: 55px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .code-section h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .code-section p {
+
+            color: var(--muted);
+
+            font-size: 14px;
+
+            margin-bottom: 22px;
+
+            line-height: 1.5;
+        }
+
+
+        .code-input {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border:
+                2px solid
+                #e2e8f0;
+
+            border-radius: 12px;
 
             text-align: center;
 
-            box-shadow:
-                0 8px 25px rgba(0,0,0,.08);
-
-            border: 1px solid #e5e7eb;
-
-            transition:
-                transform .2s ease,
-                box-shadow .2s ease;
-        }
-
-        .party:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,.13);
-        }
-
-        .party img {
-            width: 120px;
-            height: 120px;
-
-            object-fit: contain;
-
-            margin-bottom: 15px;
-        }
-
-        .party h3 {
             font-size: 18px;
-            margin-bottom: 15px;
-            color: #111827;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            outline: none;
+
+            text-transform: uppercase;
+
+            transition: .2s;
         }
 
-        .vote-btn {
+
+        .code-input:focus {
+
+            border-color:
+                var(--secondary);
+        }
+
+
+        .continue-btn {
+
             width: 100%;
+
+            margin-top: 15px;
+
+            padding: 15px;
 
             border: none;
 
-            background: #111827;
+            border-radius: 12px;
+
+            background:
+                var(--secondary);
+
             color: white;
 
-            padding: 13px;
+            font-size: 16px;
 
-            border-radius: 10px;
-
-            font-size: 15px;
             font-weight: bold;
 
             cursor: pointer;
@@ -180,150 +279,415 @@
             transition: .2s;
         }
 
-        .vote-btn:hover {
-            background: #2563eb;
+
+        .continue-btn:hover {
+
+            background: #1d4ed8;
+
+            transform:
+                translateY(-1px);
         }
+
+
+        /* =========================
+           MENSAJE
+        ========================= */
+
+        .message {
+
+            display: none;
+
+            padding: 13px;
+
+            border-radius: 10px;
+
+            margin-top: 15px;
+
+            font-size: 14px;
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background: #fef2f2;
+
+            color: #991b1b;
+
+            border:
+                1px solid
+                #fecaca;
+        }
+
+
+        /* =========================
+           ENCUESTA
+        ========================= */
+
+        #pollSection {
+
+            display: none;
+
+            margin-top: 35px;
+        }
+
+
+        .intro {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+
+        .intro h2 {
+
+            font-size:
+                clamp(
+                    24px,
+                    4vw,
+                    31px
+                );
+
+            margin-bottom: 8px;
+        }
+
+
+        .intro p {
+
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           PARTIDOS
+        ========================= */
+
+        .parties {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(
+                        240px,
+                        1fr
+                    )
+                );
+
+            gap: 20px;
+        }
+
+
+        .party {
+
+            background:
+                var(--card);
+
+            border-radius: 20px;
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                #e2e8f0;
+
+            box-shadow:
+                0 8px 25px
+                rgba(0,0,0,.06);
+
+            transition:
+                transform .2s,
+                box-shadow .2s;
+        }
+
+
+        .party:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,.11);
+        }
+
+
+        .party img {
+
+            width: 125px;
+
+            height: 125px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+        }
+
+
+        .party h3 {
+
+            font-size: 18px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .vote-btn {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                var(--primary);
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+
+        .vote-btn:hover {
+
+            background:
+                var(--secondary);
+        }
+
 
         /* =========================
            RESULTADOS
         ========================= */
 
         .results-section {
-            background: white;
 
-            border-radius: 18px;
+            margin: 50px 0;
+
+            background: white;
 
             padding: 30px;
 
-            margin: 35px 0;
+            border-radius: 20px;
 
             box-shadow:
-                0 8px 25px rgba(0,0,0,.07);
+                0 8px 30px
+                rgba(0,0,0,.07);
         }
+
 
         .results-header {
+
             text-align: center;
-            margin-bottom: 25px;
+
+            margin-bottom: 30px;
         }
+
 
         .results-header h2 {
-            font-size: 26px;
-            margin-bottom: 8px;
+
+            font-size: 27px;
+
+            margin-bottom: 7px;
         }
 
-        .live {
-            display: inline-flex;
 
-            align-items: center;
+        .live {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
 
             gap: 7px;
 
-            font-size: 13px;
+            color:
+                var(--success);
 
-            color: #15803d;
+            font-size: 13px;
 
             font-weight: bold;
         }
 
+
         .live-dot {
+
             width: 9px;
+
             height: 9px;
 
-            background: #22c55e;
+            background:
+                #22c55e;
 
             border-radius: 50%;
+
+            animation:
+                pulse 1.5s infinite;
         }
 
-        /* =========================
-           RESULTADO INDIVIDUAL
-        ========================= */
+
+        @keyframes pulse {
+
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: .3;
+            }
+
+            100% {
+                opacity: 1;
+            }
+
+        }
+
 
         .result {
+
             margin-bottom: 20px;
         }
 
+
         .result-info {
+
             display: flex;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             margin-bottom: 7px;
 
             font-size: 14px;
         }
 
+
         .result-name {
+
             font-weight: bold;
         }
+
 
         .result-percent {
+
             font-weight: bold;
+
+            color:
+                var(--secondary);
         }
 
+
         .bar {
+
+            width: 100%;
+
             height: 13px;
 
-            background: #e5e7eb;
+            background:
+                #e2e8f0;
 
             border-radius: 20px;
 
             overflow: hidden;
         }
 
+
         .bar-fill {
+
             height: 100%;
 
-            background: linear-gradient(
-                90deg,
-                #2563eb,
-                #60a5fa
-            );
+            width: 0%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #60a5fa
+                );
 
             border-radius: 20px;
 
-            transition: width .5s ease;
+            transition:
+                width .5s ease;
         }
 
-        /* =========================
-           TOTAL
-        ========================= */
 
-        .total-votes {
-            margin-top: 25px;
+        .result-votes {
 
-            padding: 18px;
+            margin-top: 5px;
 
-            background: #f3f4f6;
+            color:
+                var(--muted);
 
-            border-radius: 12px;
+            font-size: 12px;
+        }
+
+
+        .total {
+
+            margin-top: 30px;
+
+            padding: 20px;
 
             text-align: center;
+
+            background:
+                #f8fafc;
+
+            border-radius: 14px;
         }
 
-        .total-votes span {
-            display: block;
+
+        .total-label {
+
+            color:
+                var(--muted);
+
+            font-size: 14px;
         }
+
 
         .total-number {
-            font-size: 32px;
+
+            font-size: 35px;
 
             font-weight: bold;
 
             margin-top: 5px;
-
-            color: #111827;
         }
+
 
         /* =========================
            MODAL
         ========================= */
 
         .modal {
+
             position: fixed;
 
             inset: 0;
 
-            background: rgba(0,0,0,.65);
+            background:
+                rgba(
+                    15,
+                    23,
+                    42,
+                    .72
+                );
 
             display: none;
 
@@ -336,717 +700,514 @@
             z-index: 9999;
         }
 
+
         .modal.active {
+
             display: flex;
         }
 
+
         .modal-content {
+
             width: 100%;
+
             max-width: 450px;
 
             background: white;
 
-            border-radius: 20px;
+            border-radius: 22px;
 
             padding: 30px;
 
             text-align: center;
 
             box-shadow:
-                0 25px 60px rgba(0,0,0,.3);
+                0 25px 70px
+                rgba(0,0,0,.3);
+
+            animation:
+                modalIn .2s ease;
         }
+
+
+        @keyframes modalIn {
+
+            from {
+                transform:
+                    scale(.9);
+
+                opacity: 0;
+            }
+
+            to {
+                transform:
+                    scale(1);
+
+                opacity: 1;
+            }
+
+        }
+
 
         .modal-icon {
+
             font-size: 50px;
 
-            margin-bottom: 15px;
-        }
-
-        .modal h2 {
             margin-bottom: 10px;
         }
 
+
+        .modal h2 {
+
+            margin-bottom: 10px;
+        }
+
+
         .modal p {
-            color: #6b7280;
+
+            color:
+                var(--muted);
 
             line-height: 1.5;
 
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
+
+        .selected-party {
+
+            display: block;
+
+            font-size: 20px;
+
+            margin: 15px 0;
+        }
+
+
         .modal-buttons {
+
             display: flex;
 
             gap: 10px;
+
+            margin-top: 20px;
         }
 
+
         .modal-buttons button {
+
             flex: 1;
 
-            padding: 13px;
-
-            border-radius: 10px;
+            padding: 14px;
 
             border: none;
+
+            border-radius: 11px;
 
             font-weight: bold;
 
             cursor: pointer;
         }
 
+
         .cancel {
-            background: #e5e7eb;
-            color: #111827;
+
+            background:
+                #e2e8f0;
+
+            color:
+                var(--text);
         }
 
+
         .confirm {
-            background: #2563eb;
+
+            background:
+                var(--secondary);
+
             color: white;
         }
+
+
+        /* =========================
+           ÉXITO
+        ========================= */
+
+        .success {
+
+            display: none;
+
+            max-width: 520px;
+
+            margin: 35px auto;
+
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 40px 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0,0,0,.08);
+        }
+
+
+        .success-icon {
+
+            font-size: 65px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .success h2 {
+
+            margin-bottom: 10px;
+        }
+
+
+        .success p {
+
+            color:
+                var(--muted);
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+        }
+
+
+        .results-btn {
+
+            padding: 14px 25px;
+
+            border: none;
+
+            border-radius: 11px;
+
+            background:
+                var(--secondary);
+
+            color: white;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            background: #111827;
 
-            color: #d1d5db;
+            margin-top: 50px;
+
+            background:
+                #020617;
+
+            color:
+                #94a3b8;
 
             text-align: center;
 
-            padding: 30px 20px;
-
-            margin-top: 40px;
+            padding: 35px 20px;
 
             font-size: 13px;
 
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
+
         footer strong {
+
             color: white;
         }
+
+
+        /* =========================
+           LOADING
+        ========================= */
+
+        .loading {
+
+            opacity: .6;
+
+            pointer-events: none;
+        }
+
 
         /* =========================
            RESPONSIVE
         ========================= */
 
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 24px;
-            }
-
-            .intro h2 {
-                font-size: 23px;
-            }
+        @media(max-width:600px) {
 
             .warning {
-                margin: 15px;
+
+                width: 94%;
+
+                font-size: 13px;
             }
 
-            .container {
-                width: 94%;
+
+            .code-section {
+
+                padding: 25px 20px;
             }
+
 
             .results-section {
-                padding: 20px;
+
+                padding: 22px 18px;
             }
 
-            .modal-content {
-                padding: 25px 20px;
+
+            .modal-buttons {
+
+                flex-direction: column;
             }
 
         }
 
     </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================
+
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header>
 
-    <!-- Coloca tu logo en img/logo-encuesta.png -->
-
     <img
         src="img/logo-encuesta.png"
-        alt="Encuesta Quilmaná"
+        alt="Encuesta Ciudadana Quilmaná"
         class="logo"
         onerror="this.style.display='none'"
     >
 
-    <h1>Encuesta Ciudadana Quilmaná</h1>
+    <h1>
+        Encuesta Ciudadana Quilmaná
+    </h1>
 
     <p>
-        Quilmaná y sus anexos · Encuesta de opinión ciudadana
+        Quilmaná y sus anexos · 2026
     </p>
 
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      AVISO
-========================= -->
+===================================================== -->
 
 <div class="warning">
 
-    <strong>⚠️ IMPORTANTE — ENCUESTA NO OFICIAL</strong>
+    <div class="warning-title">
+        ⚠️ ENCUESTA NO OFICIAL
+    </div>
 
     Esta página web es una encuesta ciudadana independiente y
-    <strong>NO está autorizada, administrada ni vinculada oficialmente
-    con la ONPE, el JNE, la Municipalidad Distrital de Quilmaná
-    ni ninguna organización política.</strong>
+    <strong>
+        NO está autorizada, administrada ni vinculada oficialmente
+        con la ONPE, el JNE, la Municipalidad Distrital de Quilmaná
+        ni ninguna organización política.
+    </strong>
 
     Su finalidad es únicamente conocer la opinión de los pobladores
     de Quilmaná y sus anexos.
 
-    Los resultados publicados corresponden exclusivamente a esta
-    encuesta y <strong>no representan resultados electorales oficiales.</strong>
+    Los resultados publicados son exclusivamente referenciales y
+    <strong>
+        no representan resultados electorales oficiales.
+    </strong>
 
 </div>
 
 
 <main class="container">
 
-    <!-- =========================
-         INTRO
-    ========================= -->
 
-    <section class="intro">
+<!-- =====================================================
+     INGRESO DEL CÓDIGO
+===================================================== -->
 
-        <h2>¿Por qué organización política votarías?</h2>
+<section
+    class="code-section"
+    id="codeSection"
+>
+
+    <div class="code-icon">
+        🔑
+    </div>
+
+    <h2>
+        Código de participación
+    </h2>
+
+    <p>
+        Ingresá el código que te fue asignado
+        para participar en esta encuesta.
+    </p>
+
+    <input
+        type="text"
+        id="codeInput"
+        class="code-input"
+        placeholder="QM-XXXXXXXXXX"
+        maxlength="13"
+        autocomplete="off"
+    >
+
+    <button
+        class="continue-btn"
+        id="continueBtn"
+        onclick="validateCode()"
+    >
+        CONTINUAR
+    </button>
+
+    <div
+        id="codeMessage"
+        class="message"
+    ></div>
+
+</section>
+
+
+<!-- =====================================================
+     ENCUESTA
+===================================================== -->
+
+<section
+    id="pollSection"
+>
+
+    <div class="intro">
+
+        <h2>
+            ¿Por quién votarías?
+        </h2>
 
         <p>
-            Selecciona una sola opción y registra tu voto.
+            Seleccioná una sola organización política.
         </p>
 
-    </section>
+    </div>
 
 
-    <!-- =========================
-         PARTIDOS
-    ========================= -->
+    <div
+        class="parties"
+        id="partiesContainer"
+    >
 
-    <section class="parties">
+    </div>
 
+</section>
 
-        <!-- PARTIDO 1 -->
 
-        <article class="party">
+<!-- =====================================================
+     RESULTADOS
+===================================================== -->
 
-            <img
-                src="img/partido-01.png"
-                alt="Partido político 1"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+1'"
-            >
+<section class="results-section">
 
-            <h3>ACCION POPULAR</h3>
+    <div class="results-header">
 
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('ACCION POPULAR')">
+        <h2>
+            📊 Resultados en tiempo real
+        </h2>
 
-                VOTAR
+        <div class="live">
 
-            </button>
+            <span class="live-dot"></span>
 
-        </article>
-
-
-        <!-- PARTIDO 2 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-02.png"
-                alt="Partido político 2"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+2'"
-            >
-
-            <h3>AHORA NACION - AN</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('AHORA NACION - AN')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 3 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-03.png"
-                alt="Partido político 3"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+3'"
-            >
-
-            <h3>ALIANZA RENOVACION POPULAR Y TORO</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('ALIANZA RENOVACION POPULAR Y TORO')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 4 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-04.png"
-                alt="Partido político 4"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+4'"
-            >
-
-            <h3>APP - LA CHOLITA</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('APP - LA CHOLITA')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 5 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-05.png"
-                alt="Partido político 5"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+5'"
-            >
-
-            <h3>FUERZA POPULAR</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('FUERZA POPULAR')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 6 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-06.png"
-                alt="Partido político 6"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+6'"
-            >
-
-            <h3>PARTIDO DEMOCRATICO SOMOS PERU</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('PARTIDO DEMOCRATICO SOMOS PERU')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 7 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-07.png"
-                alt="Partido político 7"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+7'"
-            >
-
-            <h3>PARTIDO POLITICO PERU PRIMERO</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('PARTIDO POLITICO PERU PRIMERO')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 8 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-08.png"
-                alt="Partido político 8"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+8'"
-            >
-
-            <h3>PARTIDO POLITICO PRIN</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('PARTIDO POLITICO PRIN')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-
-        <!-- PARTIDO 9 -->
-
-        <article class="party">
-
-            <img
-                src="img/partido-09.png"
-                alt="Partido político 9"
-                onerror="this.src='https://via.placeholder.com/120?text=PARTIDO+9'"
-            >
-
-            <h3>PODEMOS PERU</h3>
-
-            <button
-                class="vote-btn"
-                onclick="openVoteModal('PODEMOS PERU')">
-
-                VOTAR
-
-            </button>
-
-        </article>
-
-    </section>
-
-
-    <!-- =========================
-         RESULTADOS
-    ========================= -->
-
-    <section class="results-section">
-
-        <div class="results-header">
-
-            <h2>📊 Resultados en tiempo real</h2>
-
-            <div class="live">
-
-                <span class="live-dot"></span>
-
-                ACTUALIZACIÓN EN TIEMPO REAL
-
-            </div>
+            ACTUALIZACIÓN EN TIEMPO REAL
 
         </div>
 
+    </div>
 
-        <!-- RESULTADO 1 -->
 
-        <div class="result">
+    <div id="resultsContainer">
 
-            <div class="result-info">
+        <p style="text-align:center;color:#64748b;">
+            Cargando resultados...
+        </p>
 
-                <span class="result-name">
-                    ACCION POPULAR
-                </span>
+    </div>
 
-                <span class="result-percent">
-                    0%
-                </span>
 
-            </div>
+    <div class="total">
 
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
+        <div class="total-label">
+            TOTAL DE PARTICIPANTES
         </div>
 
-
-        <!-- RESULTADO 2 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    AHORA NACION - AN
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
+        <div
+            class="total-number"
+            id="totalVotes"
+        >
+            0
         </div>
 
+    </div>
 
-        <!-- RESULTADO 3 -->
+</section>
 
-        <div class="result">
 
-            <div class="result-info">
+<!-- =====================================================
+     MENSAJE DE ÉXITO
+===================================================== -->
 
-                <span class="result-name">
-                    ALIANZA RENOVACION POPULAR Y TORO
-                </span>
+<section
+    class="success"
+    id="successSection"
+>
 
-                <span class="result-percent">
-                    0%
-                </span>
+    <div class="success-icon">
+        ✅
+    </div>
 
-            </div>
+    <h2>
+        ¡Voto registrado!
+    </h2>
 
-            <div class="bar">
+    <p>
+        Tu participación fue registrada correctamente.
+        El código utilizado ya no puede volver a utilizarse.
+    </p>
 
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
+    <button
+        class="results-btn"
+        onclick="scrollToResults()"
+    >
+        📊 VER RESULTADOS
+    </button>
 
-            </div>
+</section>
 
-        </div>
-
-
-        <!-- RESULTADO 4 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    APP - LA CHOLITA
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO 5 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    FUERZA POPULAR
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO 6 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    PARTIDO DEMOCRATICO SOMOS PERU
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO 7 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    PARTIDO POLITICO PERU PRIMERO
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO 8 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    PARTIDO POLITICO PRIN
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- RESULTADO 9 -->
-
-        <div class="result">
-
-            <div class="result-info">
-
-                <span class="result-name">
-                    PODEMOS PERU
-                </span>
-
-                <span class="result-percent">
-                    0%
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- TOTAL -->
-
-        <div class="total-votes">
-
-            <span>
-                TOTAL DE PARTICIPANTES
-            </span>
-
-            <span
-                class="total-number"
-                id="totalVotes">
-
-                0
-
-            </span>
-
-        </div>
-
-    </section>
 
 </main>
 
 
-<!-- =========================
-     MODAL DE CONFIRMACIÓN
-========================= -->
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
 <div
     class="modal"
-    id="voteModal">
+    id="voteModal"
+>
 
     <div class="modal-content">
 
@@ -1059,36 +1220,39 @@
         </h2>
 
         <p>
-            Estás por registrar tu voto por:
+            Estás seleccionando:
         </p>
 
-        <strong id="selectedParty">
+        <strong
+            class="selected-party"
+            id="selectedParty"
+        >
             Partido
         </strong>
 
-        <p style="margin-top:15px;">
-
-            Una vez registrado,
-            <strong>no podrás volver a votar.</strong>
-
+        <p>
+            Una vez confirmado,
+            <strong>
+                tu voto no podrá modificarse
+                y el código será inutilizado.
+            </strong>
         </p>
 
         <div class="modal-buttons">
 
             <button
                 class="cancel"
-                onclick="closeModal()">
-
+                onclick="closeModal()"
+            >
                 CANCELAR
-
             </button>
 
             <button
                 class="confirm"
-                onclick="confirmVote()">
-
+                id="confirmBtn"
+                onclick="confirmVote()"
+            >
                 CONFIRMAR VOTO
-
             </button>
 
         </div>
@@ -1098,13 +1262,15 @@
 </div>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
-    <strong>Encuesta Ciudadana Quilmaná 2026</strong>
+    <strong>
+        Encuesta Ciudadana Quilmaná 2026
+    </strong>
 
     <br><br>
 
@@ -1119,87 +1285,799 @@
 
     <br><br>
 
-    Los resultados son únicamente referenciales
-    y corresponden a esta encuesta ciudadana.
+    Los resultados son únicamente referenciales y corresponden
+    exclusivamente a esta encuesta ciudadana.
 
 </footer>
 
 
 <script>
 
-    /* =====================================
-       VARIABLES
-    ===================================== */
+/* =====================================================
+   CONFIGURACIÓN SUPABASE
+===================================================== */
 
-    let selectedParty = "";
+const SUPABASE_URL =
+    "https://fqwixynwpccrplfsgiov.supabase.co";
 
 
-    /* =====================================
-       ABRIR MODAL
-    ===================================== */
+const SUPABASE_KEY =
+    "sb_publishable_4rDRfQLp7_nxg0_ZULm_WA_NCCoISy3";
 
-    function openVoteModal(party) {
 
-        selectedParty = party;
+/* =====================================================
+   VARIABLES
+===================================================== */
 
-        document.getElementById("selectedParty")
-            .textContent = party;
+let votingCode = "";
 
-        document.getElementById("voteModal")
-            .classList.add("active");
+let selectedPartyId = null;
+
+let selectedPartyName = "";
+
+
+/* =====================================================
+   PETICIÓN A SUPABASE
+===================================================== */
+
+async function supabaseRequest(
+    endpoint,
+    options = {}
+) {
+
+    const response = await fetch(
+        `${SUPABASE_URL}/rest/v1/${endpoint}`,
+        {
+
+            ...options,
+
+            headers: {
+
+                "apikey":
+                    SUPABASE_KEY,
+
+                "Authorization":
+                    `Bearer ${SUPABASE_KEY}`,
+
+                "Content-Type":
+                    "application/json",
+
+                ...(options.headers || {})
+
+            }
+
+        }
+    );
+
+
+    if (!response.ok) {
+
+        const error =
+            await response.text();
+
+        throw new Error(error);
 
     }
 
 
-    /* =====================================
-       CERRAR MODAL
-    ===================================== */
+    return response.json();
 
-    function closeModal() {
-
-        document.getElementById("voteModal")
-            .classList.remove("active");
-
-        selectedParty = "";
-
-    }
+}
 
 
-    /* =====================================
-       CONFIRMAR VOTO
-       
-       TEMPORAL:
-       Después conectaremos esto
-       con Supabase.
-    ===================================== */
+/* =====================================================
+   CARGAR PARTIDOS
+===================================================== */
 
-    function confirmVote() {
+async function loadParties() {
 
-        alert(
-            "El sistema de votación todavía no está conectado a la base de datos.\n\n" +
-            "En el siguiente paso conectaremos Supabase para registrar el voto " +
-            "y evitar que una persona pueda votar nuevamente."
+    try {
+
+        const parties =
+            await supabaseRequest(
+                "partidos?select=id,nombre,logo&activo=eq.true&order=id.asc"
+            );
+
+
+        const container =
+            document.getElementById(
+                "partiesContainer"
+            );
+
+
+        container.innerHTML = "";
+
+
+        parties.forEach(
+            party => {
+
+                const card =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                card.className =
+                    "party";
+
+
+                card.innerHTML = `
+
+                    <img
+                        src="${party.logo}"
+                        alt="${escapeHtml(party.nombre)}"
+                        onerror="
+                            this.style.display='none'
+                        "
+                    >
+
+                    <h3>
+                        ${escapeHtml(party.nombre)}
+                    </h3>
+
+                    <button
+                        class="vote-btn"
+                        onclick="
+                            openVoteModal(
+                                ${party.id},
+                                '${escapeJs(party.nombre)}'
+                            )
+                        "
+                    >
+                        VOTAR
+                    </button>
+
+                `;
+
+
+                container.appendChild(
+                    card
+                );
+
+            }
         );
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        showCodeError(
+            "No se pudieron cargar las organizaciones políticas."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   VALIDAR CÓDIGO
+===================================================== */
+
+async function validateCode() {
+
+    const input =
+        document.getElementById(
+            "codeInput"
+        );
+
+
+    const btn =
+        document.getElementById(
+            "continueBtn"
+        );
+
+
+    const message =
+        document.getElementById(
+            "codeMessage"
+        );
+
+
+    const code =
+        input.value
+            .trim()
+            .toUpperCase();
+
+
+    message.className =
+        "message";
+
+
+    if (!code) {
+
+        showCodeError(
+            "Ingresá tu código de participación."
+        );
+
+        return;
+
+    }
+
+
+    btn.classList.add(
+        "loading"
+    );
+
+    btn.textContent =
+        "VERIFICANDO...";
+
+
+    try {
+
+        /*
+         * No leemos la tabla de códigos
+         * directamente.
+         *
+         * La validación real ocurre cuando
+         * se intenta registrar el voto.
+         *
+         * Acá solamente comprobamos el formato.
+         */
+
+
+        if (
+            !/^QM-[A-Z0-9]{10}$/.test(code)
+        ) {
+
+            throw new Error(
+                "El formato del código no es válido."
+            );
+
+        }
+
+
+        votingCode = code;
+
+
+        document.getElementById(
+            "codeSection"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "pollSection"
+        ).style.display =
+            "block";
+
+
+        await loadParties();
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+    catch(error) {
+
+        console.error(error);
+
+        showCodeError(
+            error.message ||
+            "Código inválido."
+        );
+
+    }
+
+    finally {
+
+        btn.classList.remove(
+            "loading"
+        );
+
+        btn.textContent =
+            "CONTINUAR";
+
+    }
+
+}
+
+
+/* =====================================================
+   ABRIR MODAL
+===================================================== */
+
+function openVoteModal(
+    partyId,
+    partyName
+) {
+
+    selectedPartyId =
+        partyId;
+
+    selectedPartyName =
+        partyName;
+
+
+    document.getElementById(
+        "selectedParty"
+    ).textContent =
+        partyName;
+
+
+    document.getElementById(
+        "voteModal"
+    ).classList.add(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   CERRAR MODAL
+===================================================== */
+
+function closeModal() {
+
+    document.getElementById(
+        "voteModal"
+    ).classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =====================================================
+   REGISTRAR VOTO
+===================================================== */
+
+async function confirmVote() {
+
+    if (
+        !votingCode ||
+        !selectedPartyId
+    ) {
+
+        return;
+
+    }
+
+
+    const button =
+        document.getElementById(
+            "confirmBtn"
+        );
+
+
+    button.disabled = true;
+
+    button.textContent =
+        "REGISTRANDO...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${SUPABASE_URL}/rest/v1/rpc/registrar_voto`,
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "apikey":
+                            SUPABASE_KEY,
+
+                        "Authorization":
+                            `Bearer ${SUPABASE_KEY}`,
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        p_codigo:
+                            votingCode,
+
+                        p_partido_id:
+                            selectedPartyId
+
+                    })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Respuesta:",
+            result
+        );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                "No se pudo registrar el voto."
+            );
+
+        }
+
+
+        if (
+            !result.success
+        ) {
+
+            throw new Error(
+                result.message ||
+                "El voto no pudo registrarse."
+            );
+
+        }
+
 
         closeModal();
 
+
+        document.getElementById(
+            "pollSection"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "successSection"
+        ).style.display =
+            "block";
+
+
+        votingCode = "";
+
+        selectedPartyId = null;
+
+        selectedPartyName = "";
+
+
+        await loadResults();
+
+
+        scrollToResults();
+
     }
 
+    catch(error) {
 
-    /* =====================================
-       CERRAR MODAL AL HACER CLICK AFUERA
-    ===================================== */
+        console.error(error);
 
-    document.getElementById("voteModal")
-        .addEventListener("click", function(event) {
+        alert(
+            error.message ||
+            "Ocurrió un error al registrar el voto."
+        );
 
-            if (event.target === this) {
+    }
+
+    finally {
+
+        button.disabled = false;
+
+        button.textContent =
+            "CONFIRMAR VOTO";
+
+    }
+
+}
+
+
+/* =====================================================
+   CARGAR RESULTADOS
+===================================================== */
+
+async function loadResults() {
+
+    try {
+
+        const parties =
+            await supabaseRequest(
+                "partidos?select=id,nombre,votos&activo=eq.true&order=votos.desc"
+            );
+
+
+        const container =
+            document.getElementById(
+                "resultsContainer"
+            );
+
+
+        container.innerHTML = "";
+
+
+        let total = 0;
+
+
+        parties.forEach(
+            party => {
+
+                total +=
+                    Number(
+                        party.votos || 0
+                    );
+
+            }
+        );
+
+
+        parties.forEach(
+            party => {
+
+                const votes =
+                    Number(
+                        party.votos || 0
+                    );
+
+
+                const percentage =
+                    total > 0
+                        ? (
+                            votes /
+                            total *
+                            100
+                        )
+                            .toFixed(1)
+                        : "0.0";
+
+
+                const result =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                result.className =
+                    "result";
+
+
+                result.innerHTML = `
+
+                    <div class="result-info">
+
+                        <span class="result-name">
+                            ${escapeHtml(party.nombre)}
+                        </span>
+
+                        <span class="result-percent">
+                            ${percentage}%
+                        </span>
+
+                    </div>
+
+                    <div class="bar">
+
+                        <div
+                            class="bar-fill"
+                            style="
+                                width:${percentage}%
+                            "
+                        ></div>
+
+                    </div>
+
+                    <div class="result-votes">
+
+                        ${votes}
+                        ${votes === 1 ? "voto" : "votos"}
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(
+                    result
+                );
+
+            }
+        );
+
+
+        document.getElementById(
+            "totalVotes"
+        ).textContent =
+            total.toLocaleString(
+                "es-PE"
+            );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Error resultados:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ACTUALIZAR RESULTADOS
+===================================================== */
+
+function startLiveResults() {
+
+    loadResults();
+
+
+    /*
+     * Actualización cada 5 segundos.
+     *
+     * Más adelante podemos conectar
+     * Supabase Realtime directamente.
+     */
+
+    setInterval(
+        loadResults,
+        5000
+    );
+
+}
+
+
+/* =====================================================
+   SCROLL RESULTADOS
+===================================================== */
+
+function scrollToResults() {
+
+    const results =
+        document.querySelector(
+            ".results-section"
+        );
+
+
+    results.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =====================================================
+   MENSAJE DE ERROR
+===================================================== */
+
+function showCodeError(
+    text
+) {
+
+    const message =
+        document.getElementById(
+            "codeMessage"
+        );
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message error";
+
+}
+
+
+/* =====================================================
+   SEGURIDAD HTML
+===================================================== */
+
+function escapeHtml(
+    text
+) {
+
+    return String(text)
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeJs(
+    text
+) {
+
+    return String(text)
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
+
+}
+
+
+/* =====================================================
+   CERRAR MODAL HACIENDO CLICK AFUERA
+===================================================== */
+
+document
+    .getElementById(
+        "voteModal"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
 
                 closeModal();
 
             }
 
-        });
+        }
+    );
+
+
+/* =====================================================
+   ENTER EN CÓDIGO
+===================================================== */
+
+document
+    .getElementById(
+        "codeInput"
+    )
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                validateCode();
+
+            }
+
+        }
+    );
+
+
+/* =====================================================
+   INICIAR
+===================================================== */
+
+loadResults();
+
+startLiveResults();
 
 </script>
 
