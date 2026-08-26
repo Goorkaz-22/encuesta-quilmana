@@ -1527,21 +1527,23 @@ footer strong{
 .top3-container {
     display: grid;
     grid-template-columns: 1fr 1.15fr 1fr;
-    align-items: end;
+    align-items: stretch;
     gap: 18px;
     margin-bottom: 35px;
 }
 
 .top3-card {
     background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 22px;
-    padding: 22px 18px;
-    text-align: center;
-    box-shadow: 0 12px 30px rgba(15,23,42,.08);
-    position: relative;
-    overflow: hidden;
-}
+
+    min-height: 360px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
 
 .top3-card.first {
     padding-top: 30px;
@@ -1549,6 +1551,8 @@ footer strong{
     border: 2px solid #f59e0b;
     transform: translateY(-12px);
     box-shadow: 0 18px 40px rgba(15,23,42,.14);
+
+    min-height: 390px;
 }
 
 .top3-position {
@@ -1670,6 +1674,14 @@ footer strong{
     .top3-bar {
         grid-column: 1 / -1;
     }
+
+   .top3-card {
+    min-height: auto;
+}
+
+.top3-card.first {
+    min-height: auto;
+}
 
 }
    
