@@ -1519,6 +1519,159 @@ footer strong{
     }
 
 }
+
+/* =========================================================
+   TOP 3 DESTACADO
+========================================================= */
+
+.top3-container {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr 1fr;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.top3-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    padding: 22px 18px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(15,23,42,.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.top3-card.first {
+    padding-top: 30px;
+    padding-bottom: 28px;
+    border: 2px solid #f59e0b;
+    transform: translateY(-12px);
+    box-shadow: 0 18px 40px rgba(15,23,42,.14);
+}
+
+.top3-position {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.top3-card.first .top3-position {
+    font-size: 40px;
+}
+
+.top3-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 12px;
+    background: #f1f5f9;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 20px rgba(15,23,42,.15);
+}
+
+.top3-card.first .top3-photo {
+    width: 125px;
+    height: 125px;
+}
+
+.top3-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.top3-logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    margin: 5px auto 10px;
+    display: block;
+}
+
+.top3-name {
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 7px;
+}
+
+.top3-percentage {
+    font-size: 28px;
+    font-weight: 900;
+    color: #2563eb;
+}
+
+.top3-card.first .top3-percentage {
+    font-size: 34px;
+}
+
+.top3-votes {
+    color: #64748b;
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+.top3-bar {
+    width: 100%;
+    height: 9px;
+    background: #e2e8f0;
+    border-radius: 20px;
+    margin-top: 14px;
+    overflow: hidden;
+}
+
+.top3-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg,#2563eb,#60a5fa);
+    border-radius: 20px;
+}
+
+.other-results-title {
+    margin: 30px 0 20px;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+@media(max-width:700px) {
+
+    .top3-container {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+    }
+
+    .top3-card.first {
+        transform: none;
+        order: -1;
+    }
+
+    .top3-card {
+        display: grid;
+        grid-template-columns: 80px 1fr;
+        align-items: center;
+        text-align: left;
+        gap: 15px;
+    }
+
+    .top3-photo,
+    .top3-card.first .top3-photo {
+        width: 75px;
+        height: 75px;
+        margin: 0;
+        grid-row: span 3;
+    }
+
+    .top3-logo {
+        width: 45px;
+        height: 45px;
+        margin: 0;
+    }
+
+    .top3-bar {
+        grid-column: 1 / -1;
+    }
+
+}
    
 </style>
 
@@ -2431,23 +2584,25 @@ async function loadResults(){
 
     try{
 
-       const results =
-await supabaseRequest(
-    "rpc/obtener_resultados"
-);
+        const results =
+        await supabaseRequest(
+            "rpc/obtener_resultados"
+        );
 
-const parties =
-await supabaseRequest(
-    "partidos?select=id,nombre,logo,foto_candidato&activo=eq.true&order=id.asc"
-);
+        const parties =
+        await supabaseRequest(
+            "partidos?select=id,nombre,logo,foto_candidato&activo=eq.true&order=id.asc"
+        );
 
-       const partyInfo = {};
 
-parties.forEach(party => {
+        const partyInfo = {};
 
-    partyInfo[party.id] = party;
 
-});
+        parties.forEach(party => {
+
+            partyInfo[party.id] = party;
+
+        });
 
 
         const container =
@@ -2456,184 +2611,302 @@ parties.forEach(party => {
         );
 
 
-        container.innerHTML="";
+        container.innerHTML = "";
 
 
-        let total=0;
+        let total = 0;
 
 
-        results.forEach(
-            item=>{
+        results.forEach(item => {
 
-                total +=
-                Number(
-                    item.votos || 0
-                );
+            total += Number(
+                item.votos || 0
+            );
+
+        });
+
+
+        const preparedResults =
+        results.map(item => {
+
+            const votes =
+            Number(item.votos || 0);
+
+
+            const percentage =
+            total > 0
+            ? ((votes / total) * 100).toFixed(1)
+            : "0.0";
+
+
+            return {
+
+                ...item,
+
+                votes,
+
+                percentage,
+
+                party:
+                partyInfo[item.partido_id] || {}
+
+            };
+
+        });
+
+
+        /* =================================================
+           TOP 3
+        ================================================= */
+
+        const top3 =
+        preparedResults.slice(0,3);
+
+
+        const top3Container =
+        document.createElement("div");
+
+
+        top3Container.className =
+        "top3-container";
+
+
+        top3.forEach((item,index) => {
+
+            const card =
+            document.createElement("div");
+
+
+            card.className =
+            "top3-card";
+
+
+            if(index === 0){
+
+                card.classList.add("first");
 
             }
-        );
 
 
-        results.forEach(
-            (item,index)=>{
-
-                const votes =
-                Number(
-                    item.votos || 0
-                );
-
-const party =
-partyInfo[item.partido_id] || {};
-
-const candidatePhoto =
-party.foto_candidato || "";
-
-const partyLogo =
-party.logo || "";
-               
-                const percentage =
-                total > 0
-
-                ?
-
-                (
-                    votes /
-                    total *
-                    100
-                ).toFixed(1)
-
-                :
-
-                "0.0";
+            const medals = [
+                "🥇",
+                "🥈",
+                "🥉"
+            ];
 
 
-                const result =
-                document.createElement(
-                    "div"
-                );
+            const photo =
+            item.party.foto_candidato || "";
 
 
-                result.className =
-                "result";
+            const logo =
+            item.party.logo || "";
 
 
-                result.innerHTML=`
+            card.innerHTML = `
 
-    <div class="result-card">
+                <div class="top3-position">
+                    ${medals[index]}
+                </div>
 
-        <div class="candidate-info">
 
-            <div class="candidate-photo">
+                <div class="top3-photo">
+
+                    ${
+                        photo
+
+                        ?
+
+                        `<img
+                            src="${escapeHtml(photo)}"
+                            alt="${escapeHtml(item.nombre)}"
+                            onerror="this.style.display='none'"
+                        >`
+
+                        :
+
+                        `<div class="photo-placeholder">
+                            👤
+                        </div>`
+                    }
+
+                </div>
+
 
                 ${
-                    candidatePhoto
+                    logo
+
                     ?
+
                     `<img
-                        src="${escapeHtml(candidatePhoto)}"
-                        alt="${escapeHtml(item.nombre)}"
+                        class="top3-logo"
+                        src="${escapeHtml(logo)}"
+                        alt="Logo"
                         onerror="this.style.display='none'"
                     >`
+
                     :
-                    `<div class="photo-placeholder">
-                        👤
-                    </div>`
-                }
 
-            </div>
-
-
-            <div class="party-logo">
-
-                ${
-                    partyLogo
-                    ?
-                    `<img
-                        src="${escapeHtml(partyLogo)}"
-                        alt="Logo ${escapeHtml(item.nombre)}"
-                        onerror="this.style.display='none'"
-                    >`
-                    :
                     ""
                 }
 
-            </div>
 
-        </div>
+                <div class="top3-name">
 
+                    ${escapeHtml(item.nombre)}
 
-        <div class="result-top">
-
-            <span class="result-name">
-
-                ${escapeHtml(
-                    item.nombre
-                )}
-
-            </span>
+                </div>
 
 
-            <span class="result-percent">
+                <div class="top3-percentage">
 
-                ${percentage}%
+                    ${item.percentage}%
 
-            </span>
-
-        </div>
+                </div>
 
 
-        <div class="bar">
+                <div class="top3-votes">
 
-            <div
-                class="bar-fill"
-                style="width:${percentage}%"
-            ></div>
+                    ${item.votes.toLocaleString("es-PE")}
 
-        </div>
+                    ${
+                        item.votes === 1
+                        ? "voto"
+                        : "votos"
+                    }
 
-
-        <div class="result-bottom">
-
-            <span>
-
-                ${votes}
-
-                ${
-                    votes === 1
-                    ? "voto"
-                    : "votos"
-                }
-
-            </span>
+                </div>
 
 
-            <span>
+                <div class="top3-bar">
 
-                ${
-                    index === 0
-                    ? "Primer lugar"
-                    : index === 1
-                    ? "Segundo lugar"
-                    : index === 2
-                    ? "Tercer lugar"
-                    : ""
-                }
+                    <div
+                        class="top3-bar-fill"
+                        style="
+                            width:${item.percentage}%
+                        "
+                    ></div>
 
-            </span>
+                </div>
 
-        </div>
-
-    </div>
-
-`;
+            `;
 
 
-                container.appendChild(
-                    result
-                );
+            top3Container.appendChild(
+                card
+            );
 
-            }
+        });
+
+
+        container.appendChild(
+            top3Container
         );
 
+
+        /* =================================================
+           RESTO DE RESULTADOS
+        ================================================= */
+
+        if(preparedResults.length > 3){
+
+            const title =
+            document.createElement("div");
+
+
+            title.className =
+            "other-results-title";
+
+
+            title.textContent =
+            "📊 Demás resultados";
+
+
+            container.appendChild(
+                title
+            );
+
+        }
+
+
+        preparedResults
+        .slice(3)
+        .forEach((item,index) => {
+
+
+            const result =
+            document.createElement(
+                "div"
+            );
+
+
+            result.className =
+            "result";
+
+
+            result.innerHTML = `
+
+                <div class="result-top">
+
+                    <span class="result-name">
+
+                        ${escapeHtml(
+                            item.nombre
+                        )}
+
+                    </span>
+
+
+                    <span class="result-percent">
+
+                        ${item.percentage}%
+
+                    </span>
+
+                </div>
+
+
+                <div class="bar">
+
+                    <div
+                        class="bar-fill"
+                        style="
+                            width:${item.percentage}%
+                        "
+                    ></div>
+
+                </div>
+
+
+                <div class="result-bottom">
+
+                    <span>
+
+                        ${item.votes.toLocaleString("es-PE")}
+
+                        ${
+                            item.votes === 1
+                            ? "voto"
+                            : "votos"
+                        }
+
+                    </span>
+
+                </div>
+
+            `;
+
+
+            container.appendChild(
+                result
+            );
+
+        });
+
+
+        /* =================================================
+           TOTAL
+        ================================================= */
 
         document.getElementById(
             "totalVotes"
@@ -2654,12 +2927,12 @@ party.logo || "";
 
         document.getElementById(
             "resultsContainer"
-        ).innerHTML=`
+        ).innerHTML = `
 
             <p
                 style="
-                text-align:center;
-                color:#dc2626;
+                    text-align:center;
+                    color:#dc2626;
                 "
             >
 
@@ -2673,7 +2946,6 @@ party.logo || "";
     }
 
 }
-
 
 /* =========================================================
    YA VOTÓ
