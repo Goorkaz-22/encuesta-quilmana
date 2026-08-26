@@ -1343,6 +1343,182 @@ footer strong{
     rgba(22,163,74,.30);
 
 }
+
+/* =========================================================
+   FOTOS DE CANDIDATOS EN RESULTADOS
+========================================================= */
+
+.result-card{
+
+    background:#ffffff;
+
+    border:1px solid #e2e8f0;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+}
+
+
+.candidate-info{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:18px;
+
+}
+
+
+.candidate-photo{
+
+    width:85px;
+
+    height:85px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#f1f5f9;
+
+    border:4px solid #ffffff;
+
+    box-shadow:
+    0 5px 18px
+    rgba(15,23,42,.15);
+
+    flex-shrink:0;
+
+}
+
+
+.candidate-photo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.photo-placeholder{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:32px;
+
+    color:#94a3b8;
+
+}
+
+
+.party-logo{
+
+    width:75px;
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.party-logo img{
+
+    max-width:75px;
+
+    max-height:75px;
+
+    object-fit:contain;
+
+}
+
+
+.result-card .result-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:8px;
+
+}
+
+
+.result-card .result-name{
+
+    font-weight:900;
+
+    font-size:16px;
+
+}
+
+
+.result-card .result-percent{
+
+    font-weight:900;
+
+    color:#2563eb;
+
+}
+
+
+@media(max-width:600px){
+
+    .candidate-photo{
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+
+    .party-logo{
+
+        width:65px;
+
+        height:65px;
+
+    }
+
+
+    .party-logo img{
+
+        max-width:65px;
+
+        max-height:65px;
+
+    }
+
+}
    
 </style>
 
@@ -1942,9 +2118,9 @@ async function loadParties(){
     try{
 
         const parties =
-        await supabaseRequest(
-            "partidos?select=id,nombre,logo&activo=eq.true&order=id.asc"
-        );
+await supabaseRequest(
+    "partidos?select=id,nombre,logo,foto_candidato&activo=eq.true&order=id.asc"
+);
 
 
         const container =
@@ -2255,10 +2431,23 @@ async function loadResults(){
 
     try{
 
-        const results =
-        await supabaseRequest(
-            "rpc/obtener_resultados"
-        );
+       const results =
+await supabaseRequest(
+    "rpc/obtener_resultados"
+);
+
+const parties =
+await supabaseRequest(
+    "partidos?select=id,nombre,logo,foto_candidato&activo=eq.true&order=id.asc"
+);
+
+       const partyInfo = {};
+
+parties.forEach(party => {
+
+    partyInfo[party.id] = party;
+
+});
 
 
         const container =
@@ -2293,7 +2482,15 @@ async function loadResults(){
                     item.votos || 0
                 );
 
+const party =
+partyInfo[item.partido_id] || {};
 
+const candidatePhoto =
+party.foto_candidato || "";
+
+const partyLogo =
+party.logo || "";
+               
                 const percentage =
                 total > 0
 
@@ -2322,81 +2519,112 @@ async function loadResults(){
 
                 result.innerHTML=`
 
-                    <div
-                        class="result-top"
-                    >
+    <div class="result-card">
 
-                        <span
-                            class="result-name"
-                        >
+        <div class="candidate-info">
 
-                            ${escapeHtml(
-                                item.nombre
-                            )}
+            <div class="candidate-photo">
 
-                        </span>
+                ${
+                    candidatePhoto
+                    ?
+                    `<img
+                        src="${escapeHtml(candidatePhoto)}"
+                        alt="${escapeHtml(item.nombre)}"
+                        onerror="this.style.display='none'"
+                    >`
+                    :
+                    `<div class="photo-placeholder">
+                        👤
+                    </div>`
+                }
 
-
-                        <span
-                            class="result-percent"
-                        >
-
-                            ${percentage}%
-
-                        </span>
-
-                    </div>
+            </div>
 
 
-                    <div
-                        class="bar"
-                    >
+            <div class="party-logo">
 
-                        <div
-                            class="bar-fill"
-                            style="
-                            width:${percentage}%
-                            "
-                        ></div>
+                ${
+                    partyLogo
+                    ?
+                    `<img
+                        src="${escapeHtml(partyLogo)}"
+                        alt="Logo ${escapeHtml(item.nombre)}"
+                        onerror="this.style.display='none'"
+                    >`
+                    :
+                    ""
+                }
 
-                    </div>
+            </div>
 
-
-                    <div
-                        class="result-bottom"
-                    >
-
-                        <span>
-
-                            ${
-                                votes
-                            }
-                            ${
-                                votes === 1
-                                ? "voto"
-                                : "votos"
-                            }
-
-                        </span>
+        </div>
 
 
-                        <span>
+        <div class="result-top">
 
-                            ${
-                                index === 0
-                                ? "Primer lugar"
-                                : index === 1
-                                ? "Segundo lugar"
-                                : index === 2
-                                ? "Tercer lugar"
-                                : ""
-                            }
+            <span class="result-name">
 
-                        </span>
+                ${escapeHtml(
+                    item.nombre
+                )}
 
-                    </div>
+            </span>
 
-                `;
+
+            <span class="result-percent">
+
+                ${percentage}%
+
+            </span>
+
+        </div>
+
+
+        <div class="bar">
+
+            <div
+                class="bar-fill"
+                style="width:${percentage}%"
+            ></div>
+
+        </div>
+
+
+        <div class="result-bottom">
+
+            <span>
+
+                ${votes}
+
+                ${
+                    votes === 1
+                    ? "voto"
+                    : "votos"
+                }
+
+            </span>
+
+
+            <span>
+
+                ${
+                    index === 0
+                    ? "Primer lugar"
+                    : index === 1
+                    ? "Segundo lugar"
+                    : index === 2
+                    ? "Tercer lugar"
+                    : ""
+                }
+
+            </span>
+
+        </div>
+
+    </div>
+
+`;
 
 
                 container.appendChild(
