@@ -2480,41 +2480,6 @@ async function saveVoteLocation(
     }
 
 }
-
-/* =================================================
-   OBTENER UBICACIÓN
-================================================= */
-
-const location =
-await getUserLocation();
-
-
-/* =================================================
-   GUARDAR UBICACIÓN
-================================================= */
-
-if(location){
-
-    try{
-
-        await saveVoteLocation(
-            result.vote_id,
-            location
-        );
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Error guardando ubicación:",
-            error
-        );
-
-    }
-
-}
-   
    
 /* =========================================================
    SUPABASE REQUEST
@@ -2814,6 +2779,40 @@ async function confirmVote(){
             );
 
         }
+
+       /* =================================================
+   OBTENER Y GUARDAR UBICACIÓN
+================================================= */
+
+const location =
+await getUserLocation();
+
+if(location){
+
+    try{
+
+        await saveVoteLocation(
+            result.vote_id,
+            location
+        );
+
+        console.log(
+            "📍 Ubicación guardada correctamente:",
+            location
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Error guardando ubicación:",
+            error
+        );
+
+    }
+
+}
 
 
         localStorage.setItem(
