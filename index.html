@@ -257,6 +257,111 @@ body{
 
 }
 
+   /* =========================================================
+   CUENTA REGRESIVA
+========================================================= */
+
+.countdown{
+    width:92%;
+    max-width:1100px;
+    margin:25px auto 35px;
+    background:#ffffff;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:25px 20px;
+    text-align:center;
+    box-shadow:
+    0 10px 30px
+    rgba(15,23,42,.07);
+}
+
+.countdown-title{
+    font-size:14px;
+    font-weight:900;
+    color:var(--gray);
+    margin-bottom:16px;
+    text-transform:uppercase;
+}
+
+.countdown-grid{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.countdown-box{
+    min-width:85px;
+    padding:14px 12px;
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:15px;
+}
+
+.countdown-number{
+    display:block;
+    font-size:30px;
+    font-weight:900;
+    color:var(--dark);
+    line-height:1;
+}
+
+.countdown-label{
+    display:block;
+    margin-top:7px;
+    color:var(--gray);
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.countdown-separator{
+    font-size:25px;
+    font-weight:900;
+    color:var(--blue);
+}
+
+.countdown-finished{
+    color:#dc2626;
+    font-size:22px;
+    font-weight:900;
+}
+
+.countdown-date{
+    margin-top:15px;
+    color:var(--gray);
+    font-size:12px;
+}
+
+@media(max-width:600px){
+
+    .countdown{
+        padding:22px 12px;
+    }
+
+    .countdown-grid{
+        gap:7px;
+    }
+
+    .countdown-box{
+        min-width:68px;
+        padding:12px 7px;
+    }
+
+    .countdown-number{
+        font-size:24px;
+    }
+
+    .countdown-label{
+        font-size:9px;
+    }
+
+    .countdown-separator{
+        font-size:18px;
+    }
+
+}
 
 /* =========================================================
    CONTAINER
@@ -1883,6 +1988,83 @@ footer strong{
 
 </div>
 
+   <!-- =========================================================
+     CUENTA REGRESIVA
+========================================================= -->
+
+<section class="countdown" id="countdownSection">
+
+    <div class="countdown-title">
+        ⏳ Las votaciones finalizan en
+    </div>
+
+    <div class="countdown-grid">
+
+        <div class="countdown-box">
+            <span
+                class="countdown-number"
+                id="countdownDays"
+            >
+                00
+            </span>
+
+            <span class="countdown-label">
+                Días
+            </span>
+        </div>
+
+        <span class="countdown-separator">:</span>
+
+        <div class="countdown-box">
+            <span
+                class="countdown-number"
+                id="countdownHours"
+            >
+                00
+            </span>
+
+            <span class="countdown-label">
+                Horas
+            </span>
+        </div>
+
+        <span class="countdown-separator">:</span>
+
+        <div class="countdown-box">
+            <span
+                class="countdown-number"
+                id="countdownMinutes"
+            >
+                00
+            </span>
+
+            <span class="countdown-label">
+                Minutos
+            </span>
+        </div>
+
+        <span class="countdown-separator">:</span>
+
+        <div class="countdown-box">
+            <span
+                class="countdown-number"
+                id="countdownSeconds"
+            >
+                00
+            </span>
+
+            <span class="countdown-label">
+                Segundos
+            </span>
+        </div>
+
+    </div>
+
+    <div class="countdown-date">
+        📅 Fecha límite: 30 de septiembre de 2026
+    </div>
+
+</section>
 
 <main class="container">
 
@@ -2266,7 +2448,6 @@ footer strong{
 
 <footer>
 
-```
 <strong>
     Encuesta Ciudadana Quilmaná 2026
 </strong>
@@ -3512,6 +3693,137 @@ document.getElementById(
     }
 );
 
+
+   /* =========================================================
+   CUENTA REGRESIVA
+========================================================= */
+
+const votingEndDate =
+    new Date("2026-09-30T23:59:59-05:00").getTime();
+
+
+function updateCountdown(){
+
+    const now =
+        new Date().getTime();
+
+    const distance =
+        votingEndDate - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById(
+            "countdownSection"
+        ).innerHTML = `
+
+            <div class="countdown-finished">
+                🔴 VOTACIONES FINALIZADAS
+            </div>
+
+            <div class="countdown-date">
+                Las votaciones finalizaron el
+                30 de septiembre de 2026.
+            </div>
+
+        `;
+
+        /*
+         * Desactivar botones de votación
+         */
+
+        document
+            .querySelectorAll(".vote-btn")
+            .forEach(button => {
+
+                button.disabled = true;
+
+                button.textContent =
+                    "🔴 VOTACIONES FINALIZADAS";
+
+                button.style.background =
+                    "#94a3b8";
+
+                button.style.cursor =
+                    "not-allowed";
+
+                button.style.transform =
+                    "none";
+
+            });
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60 * 24)
+            ) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+                (1000 * 60 * 60)
+            ) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+                (1000 * 60)
+            ) /
+            1000
+        );
+
+
+    document.getElementById(
+        "countdownDays"
+    ).textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById(
+        "countdownHours"
+    ).textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById(
+        "countdownMinutes"
+    ).textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById(
+        "countdownSeconds"
+    ).textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
 
 /* =========================================================
    INICIAR
