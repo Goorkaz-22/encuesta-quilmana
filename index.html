@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Página en mantenimiento | Goorkaz</title>
+
+    <meta name="description" content="Página temporalmente en mantenimiento. Goorkaz está resolviendo algunos inconvenientes técnicos.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0d1117;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            padding: 40px 25px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 35px;
+        }
+
+        .logo span {
+            color: #58a6ff;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            border: 5px solid #30363d;
+            border-top-color: #58a6ff;
+            border-radius: 50%;
+            animation: girar 1.5s linear infinite;
+            position: relative;
+        }
+
+        .icon::after {
+            content: "⚙";
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            animation: contrario 3s linear infinite;
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 52px);
+            margin-bottom: 20px;
+        }
+
+        .mensaje {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #b1bac4;
+            max-width: 580px;
+            margin: 0 auto 30px;
+        }
+
+        .mensaje strong {
+            color: #ffffff;
+        }
+
+        .estado {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            margin-bottom: 30px;
+            border-radius: 50px;
+            background: #161b22;
+            border: 1px solid #30363d;
+            color: #b1bac4;
+            font-size: 14px;
+        }
+
+        .punto {
+            width: 9px;
+            height: 9px;
+            background: #f2cc60;
+            border-radius: 50%;
+            animation: pulsar 1.5s infinite;
+        }
+
+        .facebook {
+            display: inline-block;
+            padding: 15px 28px;
+            background: #1877f2;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.25);
+        }
+
+        .facebook:hover {
+            transform: translateY(-3px);
+            background: #0d6efd;
+            box-shadow: 0 12px 30px rgba(24, 119, 242, 0.35);
+        }
+
+        .facebook:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            margin-top: 55px;
+            font-size: 13px;
+            color: #6e7681;
+        }
+
+        footer strong {
+            color: #8b949e;
+        }
+
+        @keyframes girar {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes contrario {
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes pulsar {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.7);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            .logo {
+                font-size: 34px;
+            }
+
+            .icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .icon::after {
+                font-size: 34px;
+            }
+
+            .mensaje {
+                font-size: 16px;
+            }
+
+            .facebook {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            footer {
+                margin-top: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <div class="logo">
+            G<span>oo</span>rkaz
+        </div>
+
+        <div class="icon"></div>
+
+        <div class="estado">
+            <span class="punto"></span>
+            Sitio temporalmente fuera de servicio
+        </div>
+
+        <h1>Página en mantenimiento</h1>
+
+        <p class="mensaje">
+            Estamos realizando algunos ajustes en la plataforma.
+            <br><br>
+            <strong>Goorkaz está resolviendo algunos inconvenientes técnicos.</strong>
+            <br>
+            Volveremos a estar disponibles lo antes posible.
+        </p>
+
+        <a
+            class="facebook"
+            href="https://www.facebook.com/goorkaz"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Síguenos en Facebook
+        </a>
+
+        <footer>
+            © 2026 <strong>Goorkaz</strong> · Todos los derechos reservados
+        </footer>
+
+    </main>
+
+</body>
+</html>
