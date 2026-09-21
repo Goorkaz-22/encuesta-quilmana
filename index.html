@@ -1917,13 +1917,390 @@ footer strong{
     }
 
 }
-   
+
+
+   /* =========================================================
+   POPUP CUENTA REGRESIVA
+========================================================= */
+
+.countdown-popup-overlay{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(2,6,23,.78);
+    backdrop-filter:blur(6px);
+
+    animation:popupFadeIn .35s ease;
+}
+
+.countdown-popup{
+    position:relative;
+    width:100%;
+    max-width:470px;
+
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+
+    text-align:center;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.35);
+
+    animation:popupCardIn .45s ease;
+}
+
+.countdown-popup-top{
+    height:6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            #60a5fa
+        );
+}
+
+.countdown-popup-close{
+    position:absolute;
+
+    top:15px;
+    right:15px;
+
+    width:38px;
+    height:38px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#f1f5f9;
+    color:#475569;
+
+    font-size:24px;
+    line-height:1;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    z-index:2;
+}
+
+.countdown-popup-close:hover{
+    background:var(--dark);
+    color:#fff;
+    transform:rotate(90deg);
+}
+
+.countdown-popup-content{
+    padding:35px 28px 30px;
+}
+
+.countdown-popup-icon{
+    width:72px;
+    height:72px;
+
+    margin:0 auto 17px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:#eff6ff;
+
+    font-size:36px;
+
+    animation:popupPulse 2s infinite;
+}
+
+.countdown-popup-label{
+    margin-bottom:8px;
+
+    color:var(--blue);
+
+    font-size:12px;
+    font-weight:900;
+
+    letter-spacing:1.5px;
+}
+
+.countdown-popup-title{
+    margin-bottom:12px;
+
+    color:var(--dark);
+
+    font-size:30px;
+    line-height:1.1;
+
+    font-weight:900;
+}
+
+.countdown-popup-text{
+    margin-bottom:20px;
+
+    color:var(--gray);
+
+    font-size:14px;
+    line-height:1.6;
+}
+
+.countdown-popup-date{
+    display:inline-block;
+
+    margin-bottom:20px;
+    padding:9px 15px;
+
+    border-radius:30px;
+
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+
+    color:#c2410c;
+
+    font-size:12px;
+    font-weight:900;
+}
+
+.popup-countdown{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:8px;
+
+    margin-bottom:23px;
+}
+
+.popup-time-box{
+    padding:12px 5px;
+
+    background:#f8fafc;
+    border:1px solid var(--border);
+
+    border-radius:13px;
+}
+
+.popup-time-number{
+    display:block;
+
+    color:var(--dark);
+
+    font-size:24px;
+    font-weight:900;
+
+    line-height:1;
+}
+
+.popup-time-label{
+    display:block;
+
+    margin-top:6px;
+
+    color:var(--gray);
+
+    font-size:9px;
+    font-weight:800;
+
+    text-transform:uppercase;
+}
+
+.popup-survey-btn{
+    width:100%;
+
+    padding:14px;
+
+    border:0;
+    border-radius:12px;
+
+    background:var(--dark);
+    color:#fff;
+
+    font-size:14px;
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.popup-survey-btn:hover{
+    background:var(--blue);
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(37,99,235,.25);
+}
+
+@keyframes popupFadeIn{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+@keyframes popupCardIn{
+    from{
+        opacity:0;
+        transform:scale(.88) translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+@keyframes popupPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.06);
+    }
+}
+
+@media(max-width:500px){
+
+    .countdown-popup-content{
+        padding:32px 18px 25px;
+    }
+
+    .countdown-popup-title{
+        font-size:26px;
+    }
+
+    .popup-time-number{
+        font-size:21px;
+    }
+
+}
 </style>
 
 </head>
 
 
 <body>
+
+   <!-- =========================================================
+     POPUP CUENTA REGRESIVA
+========================================================= -->
+
+<div
+    class="countdown-popup-overlay"
+    id="countdownPopup"
+>
+
+    <div class="countdown-popup">
+
+        <div class="countdown-popup-top"></div>
+
+        <button
+            type="button"
+            class="countdown-popup-close"
+            id="closeCountdownPopup"
+            aria-label="Cerrar aviso"
+        >
+            ×
+        </button>
+
+        <div class="countdown-popup-content">
+
+            <div class="countdown-popup-icon">
+                ⏳
+            </div>
+
+            <div class="countdown-popup-label">
+                AVISO IMPORTANTE
+            </div>
+
+            <h2 class="countdown-popup-title">
+                ¡La cuenta regresiva ya comenzó!
+            </h2>
+
+            <p class="countdown-popup-text">
+                El tiempo corre. La encuesta ciudadana
+                estará activa hasta el
+                <strong>30 de septiembre de 2026</strong>.
+            </p>
+
+            <div class="countdown-popup-date">
+                📅 FINALIZA · 30 DE SEPTIEMBRE
+            </div>
+
+            <div class="popup-countdown">
+
+                <div class="popup-time-box">
+                    <span
+                        class="popup-time-number"
+                        id="popupDays"
+                    >00</span>
+
+                    <span class="popup-time-label">
+                        Días
+                    </span>
+                </div>
+
+                <div class="popup-time-box">
+                    <span
+                        class="popup-time-number"
+                        id="popupHours"
+                    >00</span>
+
+                    <span class="popup-time-label">
+                        Horas
+                    </span>
+                </div>
+
+                <div class="popup-time-box">
+                    <span
+                        class="popup-time-number"
+                        id="popupMinutes"
+                    >00</span>
+
+                    <span class="popup-time-label">
+                        Minutos
+                    </span>
+                </div>
+
+                <div class="popup-time-box">
+                    <span
+                        class="popup-time-number"
+                        id="popupSeconds"
+                    >00</span>
+
+                    <span class="popup-time-label">
+                        Segundos
+                    </span>
+                </div>
+
+            </div>
+
+            <button
+                type="button"
+                class="popup-survey-btn"
+                id="popupSurveyButton"
+            >
+                🗳️ VER ENCUESTA
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =========================================================
@@ -3949,6 +4326,186 @@ async function shareResults(){
 </script>
 
 
+<script>
+
+/* =========================================================
+   POPUP CUENTA REGRESIVA
+========================================================= */
+
+const popupTargetDate =
+    new Date(
+        "2026-09-30T23:59:59-05:00"
+    ).getTime();
+
+
+function updatePopupCountdown(){
+
+    const now =
+        Date.now();
+
+    const distance =
+        popupTargetDate - now;
+
+
+    if(distance <= 0){
+
+        document.getElementById("popupDays")
+            .textContent = "00";
+
+        document.getElementById("popupHours")
+            .textContent = "00";
+
+        document.getElementById("popupMinutes")
+            .textContent = "00";
+
+        document.getElementById("popupSeconds")
+            .textContent = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            distance /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (distance %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (distance %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("popupDays")
+        .textContent =
+        String(days).padStart(2,"0");
+
+
+    document.getElementById("popupHours")
+        .textContent =
+        String(hours).padStart(2,"0");
+
+
+    document.getElementById("popupMinutes")
+        .textContent =
+        String(minutes).padStart(2,"0");
+
+
+    document.getElementById("popupSeconds")
+        .textContent =
+        String(seconds).padStart(2,"0");
+
+}
+
+
+updatePopupCountdown();
+
+setInterval(
+    updatePopupCountdown,
+    1000
+);
+
+
+/* =========================================================
+   CERRAR POPUP
+========================================================= */
+
+const countdownPopup =
+    document.getElementById(
+        "countdownPopup"
+    );
+
+
+const closeCountdownPopup =
+    document.getElementById(
+        "closeCountdownPopup"
+    );
+
+
+function closeCountdownAnnouncement(){
+
+    countdownPopup.style.opacity = "0";
+
+    countdownPopup.style.transition =
+        "opacity .25s ease";
+
+
+    setTimeout(() => {
+
+        countdownPopup.style.display =
+            "none";
+
+    },250);
+
+}
+
+
+closeCountdownPopup.addEventListener(
+    "click",
+    closeCountdownAnnouncement
+);
+
+
+/* =========================================================
+   VER ENCUESTA
+========================================================= */
+
+document
+    .getElementById("popupSurveyButton")
+    .addEventListener(
+        "click",
+        () => {
+
+            closeCountdownAnnouncement();
+
+
+            setTimeout(() => {
+
+                /*
+                 * Busca automáticamente la sección
+                 * de partidos/opciones de tu página.
+                 */
+
+                const surveySection =
+                    document.querySelector(".parties");
+
+
+                if(surveySection){
+
+                    surveySection.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                }
+
+            },300);
+
+        }
+    );
+
+</script>
+   
 </body>
 
 </html>
